@@ -10,6 +10,42 @@ if ( ! defined( 'ABSPATH' ) ) {
  * pequeños ajustes de UI sin duplicar la lógica comercial existente.
  */
 
+function zfl_storefront_asset_url( $relative_path ) {
+    return ZFL_URL . 'frontend/assets/' . ltrim( (string) $relative_path, '/' );
+}
+
+function zfl_storefront_logo_url() {
+    return zfl_storefront_asset_url( 'brand/zofloridane-logo.webp' );
+}
+
+function zfl_storefront_default_hero_slides( $shop_url, $loc_name = '' ) {
+    $destination = $loc_name ? ' para ' . $loc_name : '';
+
+    return array(
+        array(
+            '_image_url' => zfl_storefront_asset_url( 'hero/hero-family-delivery.webp' ),
+            'title'      => 'Compra desde EE. UU. y entrégalo en Cuba.',
+            'copy'       => 'Productos esenciales' . $destination . ', pago con Zelle y acompañamiento durante todo el pedido.',
+            'link'       => $shop_url,
+            'cta'        => 'Ver productos',
+        ),
+        array(
+            '_image_url' => zfl_storefront_asset_url( 'hero/hero-camaguey-delivery.webp' ),
+            'title'      => 'Entregas confiables para tu familia.',
+            'copy'       => $loc_name ? 'Coordinamos la entrega en ' . $loc_name . ' con disponibilidad clara según tu destino.' : 'Selecciona la localidad y coordinamos la entrega con disponibilidad clara.',
+            'link'       => home_url( '/#como-comprar' ),
+            'cta'        => 'Cómo comprar',
+        ),
+        array(
+            '_image_url' => zfl_storefront_asset_url( 'hero/hero-online-shopping.webp' ),
+            'title'      => 'Haz tu pedido online de forma simple.',
+            'copy'       => 'Alimentos, bebidas, aseo, higiene y más para tu familia en Cuba.',
+            'link'       => $shop_url,
+            'cta'        => 'Explorar catálogo',
+        ),
+    );
+}
+
 function zfl_storefront_normalize_label( $value ) {
     $value = remove_accents( wp_strip_all_tags( (string) $value ) );
     $value = strtolower( $value );
@@ -195,8 +231,8 @@ function zfl_storefront_filter_offers( $query ) {
 add_action( 'pre_get_posts', 'zfl_storefront_filter_offers', 30 );
 
 /**
- * Capa final del rediseño. Se carga después de las hojas heredadas para que
- * una sola estructura sirva a Base Negra y Base Verde.
+ * Capas finales del rediseño. La segunda hoja es una corrección visual
+ * deliberada sobre las reglas heredadas, sin duplicar lógica comercial.
  */
 function zfl_storefront_enqueue_v1() {
     if ( ! class_exists( 'ZFL_Store' ) || ! ZFL_Store::is_store_page() ) {
@@ -207,6 +243,13 @@ function zfl_storefront_enqueue_v1() {
         'zfl-storefront-v1',
         ZFL_URL . 'frontend/assets/storefront-v1.css',
         array( 'zfl-brand-black' ),
+        ZFL_VERSION
+    );
+
+    wp_enqueue_style(
+        'zfl-storefront-v1-2',
+        ZFL_URL . 'frontend/assets/storefront-v1-2.css',
+        array( 'zfl-storefront-v1' ),
         ZFL_VERSION
     );
 }
