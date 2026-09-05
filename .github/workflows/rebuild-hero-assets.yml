@@ -1,0 +1,43 @@
+name: Rebuild ZoFloridane hero assets
+
+on:
+  push:
+    branches:
+      - feature/ui-home-v1-fixwork
+    paths:
+      - '.tmp-hero/**'
+      - '.github/workflows/rebuild-hero-assets.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Rebuild WebP assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p wp-content/plugins/zfl-admin/frontend/assets/hero
+          cat .tmp-hero/family.* | base64 --decode > wp-content/plugins/zfl-admin/frontend/assets/hero/hero-family-delivery.webp
+          cat .tmp-hero/camaguey.* | base64 --decode > wp-content/plugins/zfl-admin/frontend/assets/hero/hero-camaguey-delivery.webp
+          cat .tmp-hero/online.* | base64 --decode > wp-content/plugins/zfl-admin/frontend/assets/hero/hero-online-shopping.webp
+          file wp-content/plugins/zfl-admin/frontend/assets/hero/*.webp
+          wc -c wp-content/plugins/zfl-admin/frontend/assets/hero/*.webp
+
+      - name: Commit rebuilt assets and cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add wp-content/plugins/zfl-admin/frontend/assets/hero/*.webp
+          git rm -r .tmp-hero
+          git rm .github/workflows/rebuild-hero-assets.yml
+          git commit -m "fix(home): install high-quality hero assets"
+          git push origin HEAD:feature/ui-home-v1-fixwork
