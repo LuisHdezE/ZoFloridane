@@ -231,8 +231,8 @@ function zfl_storefront_filter_offers( $query ) {
 add_action( 'pre_get_posts', 'zfl_storefront_filter_offers', 30 );
 
 /**
- * Capas finales del rediseño. La segunda hoja es una corrección visual
- * deliberada sobre las reglas heredadas, sin duplicar lógica comercial.
+ * Capas finales del rediseño. Cada hoja posterior corrige únicamente
+ * presentación y se mantiene fuera de la lógica comercial del storefront.
  */
 function zfl_storefront_enqueue_v1() {
     if ( ! class_exists( 'ZFL_Store' ) || ! ZFL_Store::is_store_page() ) {
@@ -250,6 +250,13 @@ function zfl_storefront_enqueue_v1() {
         'zfl-storefront-v1-2',
         ZFL_URL . 'frontend/assets/storefront-v1-2.css',
         array( 'zfl-storefront-v1' ),
+        ZFL_VERSION
+    );
+
+    wp_enqueue_style(
+        'zfl-storefront-hero-quality',
+        ZFL_URL . 'frontend/assets/storefront-hero-quality.css',
+        array( 'zfl-storefront-v1-2' ),
         ZFL_VERSION
     );
 }
