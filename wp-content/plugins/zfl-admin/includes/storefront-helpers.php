@@ -34,7 +34,11 @@ function zfl_storefront_is_demo_category( $term ) {
         'smartphones-tablets',
         'cell-phones-tablets',
         'tv-video',
+        'television-video',
         'home-entertainment',
+        'audio-music',
+        'car-electronics-gps',
+        'printers-scanners',
         'smartwatches',
         'virtual-reality',
         'gadgets',
@@ -55,16 +59,16 @@ function zfl_storefront_is_demo_category( $term ) {
 function zfl_storefront_category_priority( $term ) {
     $label = zfl_storefront_normalize_label( $term->name . ' ' . $term->slug );
     $priorities = array(
-        'alimento'        => 10,
-        'comida'          => 11,
-        'bebida'          => 20,
-        'aseo'            => 30,
-        'higiene'         => 40,
-        'perfumer'        => 50,
-        'hogar'           => 60,
-        'cocina'          => 61,
-        'electrodomest'   => 70,
-        'oferta'          => 80,
+        'alimento'      => 10,
+        'comida'        => 11,
+        'bebida'        => 20,
+        'aseo'          => 30,
+        'higiene'       => 40,
+        'perfumer'      => 50,
+        'hogar'         => 60,
+        'cocina'        => 61,
+        'electrodomest' => 70,
+        'oferta'        => 80,
     );
 
     foreach ( $priorities as $needle => $priority ) {
@@ -141,6 +145,33 @@ function zfl_storefront_home_template_label( $templates ) {
     return $templates;
 }
 add_filter( 'theme_page_templates', 'zfl_storefront_home_template_label', 100 );
+
+/**
+ * Extiende WC_Product_Query únicamente con los dos parámetros que necesita
+ * la Home: ordenar por ventas y limitar por la taxonomía de localidad.
+ */
+function zfl_storefront_product_query_args( $query, $query_vars ) {
+    if ( ! empty( $query_vars['zfl_best_sellers'] ) ) {
+        $query['meta_key'] = 'total_sales';
+        $query['orderby']  = 'meta_value_num';
+        $query['order']    = 'DESC';
+    }
+
+    $localidad = isset( $query_vars['zfl_localidad'] ) ? (int) $query_vars['zfl_localidad'] : 0;
+    if ( $localidad > 0 ) {
+        if ( empty( $query['tax_query'] ) || ! is_array( $query['tax_query'] ) ) {
+            $query['tax_query'] = array();
+        }
+        $query['tax_query'][] = array(
+            'taxonomy' => 'zfl_localidad',
+            'field'    => 'term_id',
+            'terms'    => array( $localidad ),
+        );
+    }
+
+    return $query;
+}
+add_filter( 'woocommerce_product_data_store_cpt_get_products_query', 'zfl_storefront_product_query_args', 10, 2 );
 
 /**
  * Permite que el enlace "Ofertas" use productos realmente rebajados sin

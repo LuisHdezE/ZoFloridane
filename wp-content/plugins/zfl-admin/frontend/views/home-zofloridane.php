@@ -25,29 +25,17 @@ foreach ( (array) $raw_promos as $promo ) {
     $promos[]            = $promo;
 }
 
-$filter_by_locality = static function ( $products ) use ( $loc_id ) {
-    if ( $loc_id <= 0 ) {
-        return array_values( (array) $products );
-    }
-
-    return array_values( array_filter( (array) $products, static function ( $product ) use ( $loc_id ) {
-        if ( ! $product ) {
-            return false;
-        }
-        $ids = wp_get_post_terms( $product->get_id(), 'zfl_localidad', array( 'fields' => 'ids' ) );
-        return ! is_wp_error( $ids ) && in_array( $loc_id, array_map( 'intval', (array) $ids ), true );
-    } ) );
-};
-
 $best_sellers = array();
 if ( function_exists( 'wc_get_products' ) ) {
-    $best_sellers = wc_get_products( array(
-        'limit'   => 48,
-        'status'  => 'publish',
-        'orderby' => 'popularity',
-        'order'   => 'DESC',
-    ) );
-    $best_sellers = array_slice( $filter_by_locality( $best_sellers ), 0, 8 );
+    $best_seller_args = array(
+        'limit'            => 8,
+        'status'           => 'publish',
+        'zfl_best_sellers' => true,
+    );
+    if ( $loc_id > 0 ) {
+        $best_seller_args['zfl_localidad'] = $loc_id;
+    }
+    $best_sellers = wc_get_products( $best_seller_args );
 }
 
 $render_product_card = static function ( $product ) {
@@ -96,8 +84,8 @@ $render_product_card = static function ( $product ) {
                 <div class="zfh-carousel" id="zfhCarousel">
                     <div class="zfh-track">
                         <?php foreach ( $promos as $index => $promo ) :
-                            $title       = ! empty( $promo['title'] ) ? $promo['title'] : 'Compra desde EE. UU. y entrégalo en Cuba';
-                            $target_url  = ! empty( $promo['link'] ) ? $promo['link'] : $shop_url;
+                            $title      = ! empty( $promo['title'] ) ? $promo['title'] : 'Compra desde EE. UU. y entrégalo en Cuba';
+                            $target_url = ! empty( $promo['link'] ) ? $promo['link'] : $shop_url;
                             ?>
                             <div class="zfh-slide" aria-label="Promoción <?php echo (int) $index + 1; ?>">
                                 <img src="<?php echo esc_url( $promo['_image_url'] ); ?>" alt="<?php echo esc_attr( $title ); ?>" <?php echo 0 === $index ? 'fetchpriority="high"' : 'loading="lazy"'; ?>>
