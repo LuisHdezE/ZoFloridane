@@ -7,10 +7,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Variables: $localidades, $logo, $shop_url, $account_url, $cart_url.
  */
 
-$faq_url     = function_exists( 'zfl_storefront_find_page_url' ) ? zfl_storefront_find_page_url( array( 'preguntas-frecuentes', 'faq' ) ) : '';
-$contact_url = function_exists( 'zfl_storefront_find_page_url' ) ? zfl_storefront_find_page_url( array( 'contacto', 'contact' ) ) : '';
-$privacy_url = function_exists( 'get_privacy_policy_url' ) ? get_privacy_policy_url() : '';
-$terms_url   = '';
+$faq_url       = function_exists( 'zfl_storefront_find_page_url' ) ? zfl_storefront_find_page_url( array( 'preguntas-frecuentes', 'faq' ) ) : '';
+$contact_url   = function_exists( 'zfl_storefront_find_page_url' ) ? zfl_storefront_find_page_url( array( 'contacto', 'contact' ) ) : '';
+$privacy_url   = function_exists( 'get_privacy_policy_url' ) ? get_privacy_policy_url() : '';
+$official_logo = function_exists( 'zfl_storefront_logo_url' ) ? zfl_storefront_logo_url() : $logo;
+$terms_url     = '';
 if ( function_exists( 'wc_terms_and_conditions_page_id' ) ) {
     $terms_id = (int) wc_terms_and_conditions_page_id();
     if ( $terms_id > 0 ) {
@@ -22,8 +23,8 @@ if ( function_exists( 'wc_terms_and_conditions_page_id' ) ) {
     <div class="zsl-footer-inner">
         <div class="zsl-footer-brand">
             <a class="zsl-footer-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="ZoFloridane, inicio">
-                <?php if ( $logo ) : ?>
-                    <img src="<?php echo esc_url( $logo ); ?>" alt="ZoFloridane">
+                <?php if ( $official_logo ) : ?>
+                    <img src="<?php echo esc_url( $official_logo ); ?>" alt="ZoFloridane">
                 <?php else : ?>
                     <span>ZoFloridane</span>
                 <?php endif; ?>
