@@ -32,3 +32,52 @@ require_once ZFL_PATH . 'includes/class-zfl-store.php';
 require_once ZFL_PATH . 'includes/storefront-helpers.php';
 require_once ZFL_PATH . 'includes/storefront-polish.php';
 require_once ZFL_PATH . 'includes/class-zfl-frontend.php';
+
+register_activation_hook( __FILE__, array( 'ZFL_Install', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'ZFL_Install', 'deactivate' ) );
+
+add_action( 'init', function () {
+    $role = get_role( 'zfl_admin_2' );
+    if ( ! $role ) {
+        add_role( 'zfl_admin_2', 'Administrador 2', array(
+            'read'                     => true,
+            'manage_woocommerce'       => true,
+            'edit_posts'               => true,
+            'upload_files'             => true,
+            'view_woocommerce_reports' => true,
+        ) );
+    }
+
+    $role = get_role( 'zfl_gestor' );
+    if ( ! $role ) {
+        add_role( 'zfl_gestor', 'Gestor de la tienda', array(
+            'read'               => true,
+            'manage_woocommerce' => true,
+            'edit_posts'         => true,
+            'upload_files'       => true,
+        ) );
+    }
+}, 5 );
+
+add_action( 'plugins_loaded', function () {
+    ZFL_Frontend::instance();
+
+    $saved = get_option( 'zfl_version', '' );
+    if ( $saved !== ZFL_VERSION ) {
+        ZFL_Install::create_tables();
+        flush_rewrite_rules();
+        update_option( 'zfl_version', ZFL_VERSION );
+    }
+}, 10 );
+
+add_action( 'plugins_loaded', function () {
+    if ( ! class_exists( 'WC_Payment_Gateway' ) ) {
+        return;
+    }
+    require_once ZFL_PATH . 'includes/class-zfl-zelle-gateway.php';
+
+    add_filter( 'woocommerce_payment_gateways', function ( $gateways ) {
+        $gateways[] = 'ZFL_Zelle_Gateway';
+        return $gateways;
+    } );
+}, 20 );
