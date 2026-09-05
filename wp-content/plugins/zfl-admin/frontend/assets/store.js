@@ -111,27 +111,39 @@
             }, { passive: true });
         }
 
-        /* ── Selector de tema base: negro / verde ── */
+        /* ── Selector de tema base: Negro / Verde ── */
         var themeSwitch = document.getElementById('zslThemeSwitch');
         var THEME_KEY = 'zfl_base_theme';
+        var THEME_MIGRATION_KEY = 'zfl_theme_default_green_v145';
 
         function normalizeBaseTheme(theme) {
-            return theme === 'green' ? 'green' : 'black';
+            return theme === 'black' ? 'black' : 'green';
+        }
+
+        function saveBaseTheme(theme) {
+            try {
+                localStorage.setItem(THEME_KEY, theme);
+            } catch (e) {}
         }
 
         function applyBaseTheme(theme, persist) {
             theme = normalizeBaseTheme(theme);
             var root = document.documentElement;
 
-            // Ambos diseños usan superficies oscuras; mantenemos los estilos
-            // de compatibilidad dark-mode y cambiamos únicamente la base cromática.
-            root.classList.add('dark-mode');
             root.classList.remove('zfl-theme-black', 'zfl-theme-green');
             root.classList.add('zfl-theme-' + theme);
             root.setAttribute('data-zfl-theme', theme);
 
+            // La Base Verde es realmente clara. El modo de compatibilidad oscuro
+            // solo se conserva cuando el usuario elige explícitamente Base Negra.
+            if (theme === 'black') {
+                root.classList.add('dark-mode');
+            } else {
+                root.classList.remove('dark-mode');
+            }
+
             if (persist !== false) {
-                localStorage.setItem(THEME_KEY, theme);
+                saveBaseTheme(theme);
             }
 
             if (themeSwitch) {
@@ -142,14 +154,26 @@
                 });
             }
 
-            // Integra el color del navegador/PWA con el tema elegido.
             var themeMeta = document.querySelector('meta[name="theme-color"]');
             if (themeMeta) {
-                themeMeta.setAttribute('content', theme === 'green' ? '#073d2a' : '#070a09');
+                themeMeta.setAttribute('content', theme === 'green' ? '#08775b' : '#070a09');
             }
         }
 
-        var savedBaseTheme = normalizeBaseTheme(localStorage.getItem(THEME_KEY));
+        var savedBaseTheme = 'green';
+        try {
+            // Migración de una sola vez: versiones anteriores guardaban "black"
+            // incluso cuando ese era simplemente el valor predeterminado. En 1.4.5
+            // arrancamos inequívocamente en Base Verde y después respetamos cada
+            // cambio manual del usuario.
+            if (localStorage.getItem(THEME_MIGRATION_KEY) !== '1') {
+                localStorage.setItem(THEME_KEY, 'green');
+                localStorage.setItem(THEME_MIGRATION_KEY, '1');
+            }
+            savedBaseTheme = normalizeBaseTheme(localStorage.getItem(THEME_KEY));
+        } catch (e) {
+            savedBaseTheme = 'green';
+        }
         applyBaseTheme(savedBaseTheme, false);
 
         if (themeSwitch) {
