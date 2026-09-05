@@ -12,6 +12,7 @@ $nav_categories = function_exists( 'zfl_storefront_get_categories' ) ? zfl_store
 $shop_url       = function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : home_url( '/' );
 $offers_url     = add_query_arg( 'zfl_ofertas', '1', $shop_url );
 $has_offers     = function_exists( 'zfl_storefront_has_offers_category' ) && zfl_storefront_has_offers_category( $nav_categories );
+$official_logo  = function_exists( 'zfl_storefront_logo_url' ) ? zfl_storefront_logo_url() : $logo;
 ?>
 <header class="zsl-header" id="zslHeader">
     <div class="zsl-topline">
@@ -33,8 +34,8 @@ $has_offers     = function_exists( 'zfl_storefront_has_offers_category' ) && zfl
 
     <div class="zsl-main">
         <a class="zsl-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="ZoFloridane, inicio">
-            <?php if ( $logo ) : ?>
-                <img src="<?php echo esc_url( $logo ); ?>" alt="ZoFloridane">
+            <?php if ( $official_logo ) : ?>
+                <img src="<?php echo esc_url( $official_logo ); ?>" alt="ZoFloridane">
             <?php else : ?>
                 <span>ZoFloridane</span>
             <?php endif; ?>
