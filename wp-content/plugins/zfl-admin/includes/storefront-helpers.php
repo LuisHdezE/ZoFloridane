@@ -1,0 +1,182 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
+/**
+ * Helpers de presentación del storefront ZoFloridane.
+ *
+ * Mantienen la Home desacoplada de categorías demo de Electro y concentran
+ * pequeños ajustes de UI sin duplicar la lógica comercial existente.
+ */
+
+function zfl_storefront_normalize_label( $value ) {
+    $value = remove_accents( wp_strip_all_tags( (string) $value ) );
+    $value = strtolower( $value );
+    $value = preg_replace( '/[^a-z0-9]+/', '-', $value );
+
+    return trim( (string) $value, '-' );
+}
+
+function zfl_storefront_is_demo_category( $term ) {
+    if ( ! is_object( $term ) || empty( $term->name ) ) {
+        return true;
+    }
+
+    $label = zfl_storefront_normalize_label( $term->name . ' ' . $term->slug );
+    $demo_markers = array(
+        'laptops-computers',
+        'computers-accessories',
+        'cameras-photography',
+        'video-games-consoles',
+        'pc-gaming-headsets',
+        'headphones',
+        'smartphones-tablets',
+        'cell-phones-tablets',
+        'tv-video',
+        'home-entertainment',
+        'smartwatches',
+        'virtual-reality',
+        'gadgets',
+        'accessories-demo',
+        'uncategorized',
+        'sin-categorizar',
+    );
+
+    foreach ( $demo_markers as $marker ) {
+        if ( false !== strpos( $label, $marker ) ) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+function zfl_storefront_category_priority( $term ) {
+    $label = zfl_storefront_normalize_label( $term->name . ' ' . $term->slug );
+    $priorities = array(
+        'alimento'        => 10,
+        'comida'          => 11,
+        'bebida'          => 20,
+        'aseo'            => 30,
+        'higiene'         => 40,
+        'perfumer'        => 50,
+        'hogar'           => 60,
+        'cocina'          => 61,
+        'electrodomest'   => 70,
+        'oferta'          => 80,
+    );
+
+    foreach ( $priorities as $needle => $priority ) {
+        if ( false !== strpos( $label, $needle ) ) {
+            return $priority;
+        }
+    }
+
+    return 100;
+}
+
+function zfl_storefront_get_categories( $limit = 8, $hide_empty = true ) {
+    if ( ! taxonomy_exists( 'product_cat' ) ) {
+        return array();
+    }
+
+    $terms = get_terms( array(
+        'taxonomy'   => 'product_cat',
+        'hide_empty' => (bool) $hide_empty,
+        'parent'     => 0,
+        'number'     => 0,
+        'orderby'    => 'name',
+        'order'      => 'ASC',
+    ) );
+
+    if ( is_wp_error( $terms ) ) {
+        return array();
+    }
+
+    $terms = array_values( array_filter( $terms, static function ( $term ) {
+        return ! zfl_storefront_is_demo_category( $term );
+    } ) );
+
+    usort( $terms, static function ( $a, $b ) {
+        $priority_a = zfl_storefront_category_priority( $a );
+        $priority_b = zfl_storefront_category_priority( $b );
+
+        if ( $priority_a === $priority_b ) {
+            return strcasecmp( $a->name, $b->name );
+        }
+
+        return $priority_a <=> $priority_b;
+    } );
+
+    return array_slice( $terms, 0, max( 0, (int) $limit ) );
+}
+
+function zfl_storefront_has_offers_category( $categories ) {
+    foreach ( (array) $categories as $category ) {
+        if ( false !== strpos( zfl_storefront_normalize_label( $category->name . ' ' . $category->slug ), 'oferta' ) ) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+function zfl_storefront_find_page_url( $paths ) {
+    foreach ( (array) $paths as $path ) {
+        $page = get_page_by_path( sanitize_title( $path ) );
+        if ( $page && 'publish' === $page->post_status ) {
+            return get_permalink( $page );
+        }
+    }
+
+    return '';
+}
+
+function zfl_storefront_home_template_label( $templates ) {
+    if ( isset( $templates[ ZFL_Store::HOME_TEMPLATE ] ) ) {
+        $templates[ ZFL_Store::HOME_TEMPLATE ] = 'Home ZoFloridane';
+    }
+
+    return $templates;
+}
+add_filter( 'theme_page_templates', 'zfl_storefront_home_template_label', 100 );
+
+/**
+ * Permite que el enlace "Ofertas" use productos realmente rebajados sin
+ * crear una categoría artificial ni una administración paralela.
+ */
+function zfl_storefront_filter_offers( $query ) {
+    if ( is_admin() || ! $query->is_main_query() || empty( $_GET['zfl_ofertas'] ) ) {
+        return;
+    }
+
+    $is_product_archive = $query->is_post_type_archive( 'product' ) || $query->is_tax( array( 'product_cat', 'product_tag' ) );
+    $is_product_search  = $query->is_search() && 'product' === $query->get( 'post_type' );
+
+    if ( ! $is_product_archive && ! $is_product_search ) {
+        return;
+    }
+
+    $sale_ids = function_exists( 'wc_get_product_ids_on_sale' ) ? wc_get_product_ids_on_sale() : array();
+    $query->set( 'post__in', ! empty( $sale_ids ) ? array_map( 'intval', $sale_ids ) : array( 0 ) );
+}
+add_action( 'pre_get_posts', 'zfl_storefront_filter_offers', 30 );
+
+/**
+ * Capa final del rediseño. Se carga después de las hojas heredadas para que
+ * una sola estructura sirva a Base Negra y Base Verde.
+ */
+function zfl_storefront_enqueue_v1() {
+    if ( ! class_exists( 'ZFL_Store' ) || ! ZFL_Store::is_store_page() ) {
+        return;
+    }
+
+    wp_enqueue_style(
+        'zfl-storefront-v1',
+        ZFL_URL . 'frontend/assets/storefront-v1.css',
+        array( 'zfl-brand-black' ),
+        ZFL_VERSION
+    );
+}
+add_action( 'wp_enqueue_scripts', 'zfl_storefront_enqueue_v1', 30 );

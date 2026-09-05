@@ -3,22 +3,35 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 /**
- * Footer público de Zofloridane.
- * Variables disponibles: $localidades, $logo, $shop_url, $account_url, $cart_url
+ * Footer público de ZoFloridane.
+ * Variables: $localidades, $logo, $shop_url, $account_url, $cart_url.
  */
+
+$faq_url     = function_exists( 'zfl_storefront_find_page_url' ) ? zfl_storefront_find_page_url( array( 'preguntas-frecuentes', 'faq' ) ) : '';
+$contact_url = function_exists( 'zfl_storefront_find_page_url' ) ? zfl_storefront_find_page_url( array( 'contacto', 'contact' ) ) : '';
+$privacy_url = function_exists( 'get_privacy_policy_url' ) ? get_privacy_policy_url() : '';
+$terms_url   = '';
+if ( function_exists( 'wc_terms_and_conditions_page_id' ) ) {
+    $terms_id = (int) wc_terms_and_conditions_page_id();
+    if ( $terms_id > 0 ) {
+        $terms_url = get_permalink( $terms_id );
+    }
+}
 ?>
 <footer class="zsl-footer">
     <div class="zsl-footer-inner">
         <div class="zsl-footer-brand">
-            <?php if ( $logo ) : ?>
-                <img src="<?php echo esc_url( $logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-            <?php else : ?>
-                <span><?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
-            <?php endif; ?>
-            <p class="zsl-footer-tag">Compra desde Estados Unidos para tus seres queridos en Cuba. Una experiencia simple, clara y acompañada de principio a fin.</p>
+            <a class="zsl-footer-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="ZoFloridane, inicio">
+                <?php if ( $logo ) : ?>
+                    <img src="<?php echo esc_url( $logo ); ?>" alt="ZoFloridane">
+                <?php else : ?>
+                    <span>ZoFloridane</span>
+                <?php endif; ?>
+            </a>
+            <p class="zsl-footer-tag">Compra desde Estados Unidos para tu familia en Cuba con disponibilidad por localidad, pago mediante Zelle y acompañamiento durante el pedido.</p>
             <div class="zsl-footer-badges">
                 <span>Pago con Zelle</span>
-                <span>Atención personalizada</span>
+                <span>Atención por WhatsApp</span>
             </div>
         </div>
 
@@ -27,18 +40,33 @@ if ( ! defined( 'ABSPATH' ) ) {
             <ul class="zsl-footer-links">
                 <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Inicio</a></li>
                 <li><a href="<?php echo esc_url( $shop_url ); ?>">Todos los productos</a></li>
-                <li><a href="<?php echo esc_url( $cart_url ); ?>">Carrito</a></li>
-                <li><a href="<?php echo esc_url( $account_url ); ?>">Mi cuenta</a></li>
+                <li><a href="<?php echo esc_url( home_url( '/#como-comprar' ) ); ?>">Cómo comprar</a></li>
             </ul>
         </div>
 
         <div class="zsl-footer-col">
             <h4>Tu pedido</h4>
             <ul class="zsl-footer-links">
-                <li><a href="<?php echo esc_url( home_url( '/rastrear-pedido/' ) ); ?>">Rastrear mi envío</a></li>
-                <li><a href="<?php echo esc_url( home_url( '/?s=&post_type=product' ) ); ?>">Buscar productos</a></li>
+                <li><a href="<?php echo esc_url( home_url( '/rastrear-pedido/' ) ); ?>">Seguimiento</a></li>
+                <li><a href="<?php echo esc_url( $account_url ); ?>">Mi cuenta</a></li>
+                <li><a href="<?php echo esc_url( $cart_url ); ?>">Carrito</a></li>
             </ul>
-            <p class="zsl-footer-note">El número o correo de Zelle se muestra al finalizar el pedido.</p>
+            <p class="zsl-footer-note">Las instrucciones de Zelle se muestran dentro del flujo del pedido.</p>
+        </div>
+
+        <div class="zsl-footer-col">
+            <h4>Ayuda</h4>
+            <ul class="zsl-footer-links">
+                <?php if ( $faq_url ) : ?><li><a href="<?php echo esc_url( $faq_url ); ?>">Preguntas frecuentes</a></li><?php endif; ?>
+                <?php if ( $contact_url ) : ?><li><a href="<?php echo esc_url( $contact_url ); ?>">Contacto</a></li><?php endif; ?>
+                <li><span class="zsl-footer-static">Atención personalizada por WhatsApp</span></li>
+            </ul>
+            <?php if ( $privacy_url || $terms_url ) : ?>
+                <div class="zsl-footer-legal">
+                    <?php if ( $privacy_url ) : ?><a href="<?php echo esc_url( $privacy_url ); ?>">Privacidad</a><?php endif; ?>
+                    <?php if ( $terms_url ) : ?><a href="<?php echo esc_url( $terms_url ); ?>">Términos</a><?php endif; ?>
+                </div>
+            <?php endif; ?>
         </div>
 
         <div class="zsl-footer-col">
@@ -50,13 +78,13 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <?php endforeach; ?>
                 </div>
             <?php else : ?>
-                <p class="zsl-footer-tag">Consulta las localidades disponibles al comenzar tu compra.</p>
+                <p class="zsl-footer-tag">Selecciona tu localidad al comenzar para consultar la disponibilidad.</p>
             <?php endif; ?>
         </div>
     </div>
 
     <div class="zsl-footer-bottom">
-        <span>&copy; <?php echo esc_html( date_i18n( 'Y' ) ); ?> <strong><?php echo esc_html( get_bloginfo( 'name' ) ); ?></strong>. Todos los derechos reservados.</span>
+        <span>&copy; <?php echo esc_html( date_i18n( 'Y' ) ); ?> <strong>ZoFloridane</strong>. Todos los derechos reservados.</span>
         <span>Compras que acortan distancias.</span>
     </div>
 </footer>

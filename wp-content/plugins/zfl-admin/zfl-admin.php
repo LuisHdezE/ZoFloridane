@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: Floridame Admin
- * Description: Panel privado para Floridame con control financiero, Zelle, productos y visitas.
+ * Plugin Name: ZoFloridane Admin
+ * Description: Panel privado y storefront personalizado de ZoFloridane con catálogo, localidades, promociones, pedidos y Zelle.
  * Version: 1.4.0
  */
 
@@ -14,6 +14,7 @@ define( 'ZFL_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ZFL_URL', plugin_dir_url( __FILE__ ) );
 define( 'ZFL_SLUG', 'panel' );
 define( 'ZFL_ALLOWED_ROLES', array( 'administrator', 'shop_manager' ) );
+define( 'ZFL_BRAND_NAME', 'ZoFloridane' );
 
 require_once ZFL_PATH . 'includes/class-zfl-install.php';
 require_once ZFL_PATH . 'includes/class-zfl-auth.php';
@@ -28,6 +29,7 @@ require_once ZFL_PATH . 'includes/class-zfl-visits.php';
 require_once ZFL_PATH . 'includes/class-zfl-reviews.php';
 require_once ZFL_PATH . 'includes/class-zfl-phones.php';
 require_once ZFL_PATH . 'includes/class-zfl-store.php';
+require_once ZFL_PATH . 'includes/storefront-helpers.php';
 require_once ZFL_PATH . 'includes/class-zfl-frontend.php';
 
 register_activation_hook( __FILE__, array( 'ZFL_Install', 'activate' ) );
@@ -37,10 +39,10 @@ add_action( 'init', function () {
     $role = get_role( 'zfl_admin_2' );
     if ( ! $role ) {
         add_role( 'zfl_admin_2', 'Administrador 2', array(
-            'read'                   => true,
-            'manage_woocommerce'     => true,
-            'edit_posts'             => true,
-            'upload_files'           => true,
+            'read'                     => true,
+            'manage_woocommerce'       => true,
+            'edit_posts'               => true,
+            'upload_files'             => true,
             'view_woocommerce_reports' => true,
         ) );
     }
@@ -48,10 +50,10 @@ add_action( 'init', function () {
     $role = get_role( 'zfl_gestor' );
     if ( ! $role ) {
         add_role( 'zfl_gestor', 'Gestor de la tienda', array(
-            'read'                   => true,
-            'manage_woocommerce'     => true,
-            'edit_posts'             => true,
-            'upload_files'           => true,
+            'read'               => true,
+            'manage_woocommerce' => true,
+            'edit_posts'         => true,
+            'upload_files'       => true,
         ) );
     }
 }, 5 );
