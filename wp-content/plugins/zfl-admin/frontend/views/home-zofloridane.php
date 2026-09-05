@@ -12,18 +12,7 @@ $shop_url = function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 
 $loc_id   = class_exists( 'ZFL_Store' ) ? ZFL_Store::get_current_localidad() : 0;
 $loc_name = class_exists( 'ZFL_Store' ) ? ZFL_Store::get_current_localidad_name() : '';
 $cats     = function_exists( 'zfl_storefront_get_categories' ) ? zfl_storefront_get_categories( 8, true ) : array();
-
-$raw_promos = class_exists( 'ZFL_Promos' ) ? ZFL_Promos::get_active() : array();
-$promos     = array();
-foreach ( (array) $raw_promos as $promo ) {
-    $image_id = isset( $promo['image_id'] ) ? (int) $promo['image_id'] : 0;
-    $image    = $image_id ? wp_get_attachment_image_url( $image_id, 'full' ) : '';
-    if ( ! $image ) {
-        continue;
-    }
-    $promo['_image_url'] = $image;
-    $promos[]            = $promo;
-}
+$promos   = function_exists( 'zfl_storefront_default_hero_slides' ) ? zfl_storefront_default_hero_slides( $shop_url, $loc_name ) : array();
 
 $best_sellers = array();
 if ( function_exists( 'wc_get_products' ) ) {
@@ -84,8 +73,10 @@ $render_product_card = static function ( $product ) {
                 <div class="zfh-carousel" id="zfhCarousel">
                     <div class="zfh-track">
                         <?php foreach ( $promos as $index => $promo ) :
-                            $title      = ! empty( $promo['title'] ) ? $promo['title'] : 'Compra desde EE. UU. y entrégalo en Cuba';
+                            $title      = ! empty( $promo['title'] ) ? $promo['title'] : 'Compra desde EE. UU. y entrégalo en Cuba.';
+                            $copy       = ! empty( $promo['copy'] ) ? $promo['copy'] : ( $loc_name ? 'Productos disponibles para ' . $loc_name : 'Selecciona una localidad y descubre qué podemos entregar.' );
                             $target_url = ! empty( $promo['link'] ) ? $promo['link'] : $shop_url;
+                            $cta        = ! empty( $promo['cta'] ) ? $promo['cta'] : 'Ver productos';
                             ?>
                             <div class="zfh-slide" aria-label="Promoción <?php echo (int) $index + 1; ?>">
                                 <img src="<?php echo esc_url( $promo['_image_url'] ); ?>" alt="<?php echo esc_attr( $title ); ?>" <?php echo 0 === $index ? 'fetchpriority="high"' : 'loading="lazy"'; ?>>
@@ -93,8 +84,8 @@ $render_product_card = static function ( $product ) {
                                 <div class="zfh-slide-copy">
                                     <small>ZoFloridane</small>
                                     <strong><?php echo esc_html( $title ); ?></strong>
-                                    <em><?php echo $loc_name ? 'Productos disponibles para ' . esc_html( $loc_name ) : 'Selecciona una localidad y descubre qué podemos entregar'; ?></em>
-                                    <a class="zfh-slide-cta" href="<?php echo esc_url( $target_url ); ?>">Ver productos</a>
+                                    <em><?php echo esc_html( $copy ); ?></em>
+                                    <a class="zfh-slide-cta" href="<?php echo esc_url( $target_url ); ?>"><?php echo esc_html( $cta ); ?></a>
                                 </div>
                             </div>
                         <?php endforeach; ?>
