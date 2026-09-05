@@ -2,14 +2,14 @@
 /**
  * Plugin Name: ZoFloridane Admin
  * Description: Panel privado y storefront personalizado de ZoFloridane con catálogo, localidades, promociones, pedidos y Zelle.
- * Version: 1.4.5
+ * Version: 1.4.6
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'ZFL_VERSION', '1.4.5' );
+define( 'ZFL_VERSION', '1.4.6' );
 define( 'ZFL_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ZFL_URL', plugin_dir_url( __FILE__ ) );
 define( 'ZFL_SLUG', 'panel' );
@@ -32,52 +32,3 @@ require_once ZFL_PATH . 'includes/class-zfl-store.php';
 require_once ZFL_PATH . 'includes/storefront-helpers.php';
 require_once ZFL_PATH . 'includes/storefront-polish.php';
 require_once ZFL_PATH . 'includes/class-zfl-frontend.php';
-
-register_activation_hook( __FILE__, array( 'ZFL_Install', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'ZFL_Install', 'deactivate' ) );
-
-add_action( 'init', function () {
-    $role = get_role( 'zfl_admin_2' );
-    if ( ! $role ) {
-        add_role( 'zfl_admin_2', 'Administrador 2', array(
-            'read'                     => true,
-            'manage_woocommerce'       => true,
-            'edit_posts'               => true,
-            'upload_files'             => true,
-            'view_woocommerce_reports' => true,
-        ) );
-    }
-
-    $role = get_role( 'zfl_gestor' );
-    if ( ! $role ) {
-        add_role( 'zfl_gestor', 'Gestor de la tienda', array(
-            'read'               => true,
-            'manage_woocommerce' => true,
-            'edit_posts'         => true,
-            'upload_files'       => true,
-        ) );
-    }
-}, 5 );
-
-add_action( 'plugins_loaded', function () {
-    ZFL_Frontend::instance();
-
-    $saved = get_option( 'zfl_version', '' );
-    if ( $saved !== ZFL_VERSION ) {
-        ZFL_Install::create_tables();
-        flush_rewrite_rules();
-        update_option( 'zfl_version', ZFL_VERSION );
-    }
-}, 10 );
-
-add_action( 'plugins_loaded', function () {
-    if ( ! class_exists( 'WC_Payment_Gateway' ) ) {
-        return;
-    }
-    require_once ZFL_PATH . 'includes/class-zfl-zelle-gateway.php';
-
-    add_filter( 'woocommerce_payment_gateways', function ( $gateways ) {
-        $gateways[] = 'ZFL_Zelle_Gateway';
-        return $gateways;
-    } );
-}, 20 );
