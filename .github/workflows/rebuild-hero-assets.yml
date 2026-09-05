@@ -1,0 +1,55 @@
+name: Rebuild hero assets
+
+on:
+  push:
+    branches:
+      - feature/ui-home-v1
+    paths:
+      - '.hero-avif/**'
+      - '.github/workflows/rebuild-hero-assets.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/ui-home-v1
+
+      - name: Rebuild and validate hero assets
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          hero="wp-content/plugins/zfl-admin/frontend/assets/hero"
+          mkdir -p "$hero"
+
+          cat .hero-avif/family.part* | base64 -d > "$hero/hero-family-delivery.avif"
+          cat .hero-avif/camaguey.part* | base64 -d > "$hero/hero-camaguey-delivery.avif"
+          cat .hero-avif/online.part* | base64 -d > "$hero/hero-online-shopping.avif"
+
+          test "$(stat -c%s "$hero/hero-family-delivery.avif")" -eq 35529
+          test "$(stat -c%s "$hero/hero-camaguey-delivery.avif")" -eq 29476
+          test "$(stat -c%s "$hero/hero-online-shopping.avif")" -eq 28344
+
+          echo "b0534431cab2748da63b792ca7574cbffaea4ac8b28266fc2774ef44504d087a  $hero/hero-family-delivery.avif" | sha256sum --check -
+          echo "57f9de1155d325f4e0282366713d64f0a904d8137a8bea8a7053f55b8a1add2e  $hero/hero-camaguey-delivery.avif" | sha256sum --check -
+          echo "6dd90ccfdd2e21afc59683c70a77ab199f8b526f59949b27aca5a9a76a5be3fa  $hero/hero-online-shopping.avif" | sha256sum --check -
+
+          rm -f "$hero"/hero-*.webp
+          rm -rf .hero-avif .hero-rebuild .tmp-hero .tmp-assets
+          rm -f tmp-placeholder.txt docs/TEMP_STATUS.md
+          rm -f .github/workflows/rebuild-hero-assets.yml
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+
+          if ! git diff --cached --quiet; then
+            git commit -m "fix(home): install crisp hero assets"
+            git push origin HEAD:feature/ui-home-v1
+          fi
