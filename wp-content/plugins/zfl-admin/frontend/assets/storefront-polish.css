@@ -1,0 +1,105 @@
+/*
+ * ZoFloridane Storefront polish
+ * Ajustes de contraste, logo y controles del carrusel.
+ */
+
+/* Base Negra: el logo oficial contiene texto oscuro, por eso lo presentamos
+   sobre una cápsula clara y sin deformarlo. */
+html.zfl-theme-black .zsl-logo,
+html.zfl-theme-black .zsl-footer-logo {
+    background: #ffffff !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
+    border-radius: 10px !important;
+    padding: 5px 9px !important;
+    box-shadow: 0 4px 14px rgba(0,0,0,.18) !important;
+}
+
+html.zfl-theme-black .zsl-logo img,
+html.zfl-theme-black .zsl-footer-logo img {
+    width: auto !important;
+    height: auto !important;
+    max-width: 210px !important;
+    max-height: 54px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: none !important;
+    filter: none !important;
+}
+
+/* Flechas del carrusel: usamos glifos CSS deliberadamente robustos para que
+   ninguna regla heredada de Electro pueda convertir el SVG en un punto. */
+.zfh-nav {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    border-radius: 50% !important;
+    display: grid !important;
+    place-items: center !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    font-size: 0 !important;
+}
+
+.zfh-nav svg {
+    display: none !important;
+}
+
+.zfh-nav::before {
+    display: block !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 34px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    color: currentColor !important;
+    transform: translateY(-1px) !important;
+}
+
+.zfh-prev::before {
+    content: "‹" !important;
+}
+
+.zfh-next::before {
+    content: "›" !important;
+}
+
+html.zfl-theme-green .zfh-nav {
+    background: rgba(255,255,255,.97) !important;
+    color: #075f4c !important;
+    border: 1px solid rgba(7,95,76,.22) !important;
+    box-shadow: 0 5px 16px rgba(21,72,50,.16) !important;
+}
+
+html.zfl-theme-green .zfh-nav:hover,
+html.zfl-theme-green .zfh-nav:focus-visible {
+    background: #08775b !important;
+    color: #ffffff !important;
+    border-color: #08775b !important;
+}
+
+html.zfl-theme-black .zfh-nav {
+    background: rgba(255,255,255,.96) !important;
+    color: #083f31 !important;
+    border: 1px solid rgba(255,255,255,.65) !important;
+    box-shadow: 0 5px 18px rgba(0,0,0,.34) !important;
+}
+
+html.zfl-theme-black .zfh-nav:hover,
+html.zfl-theme-black .zfh-nav:focus-visible {
+    background: #20c77a !important;
+    color: #06130e !important;
+    border-color: #20c77a !important;
+}
+
+@media (max-width: 767px) {
+    .zfh-nav {
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        min-height: 38px !important;
+    }
+
+    .zfh-nav::before {
+        font-size: 30px !important;
+    }
+}
