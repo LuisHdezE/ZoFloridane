@@ -1,0 +1,657 @@
+/* ================================================
+   MODO OSCURO — Floridame
+   Se activa con html.dark-mode (toggle manual o preferencia del sistema)
+   ================================================ */
+
+html.dark-mode {
+
+/* ─── GLOBAL ─── */
+body { background: #0f1115 !important; color: #e5e7eb !important; }
+img { opacity: .92; }
+
+/* ─── STORE HEADER ─── */
+.zsl-header { background: #1a1d23 !important; border-bottom-color: #ffcc00 !important; box-shadow: 0 1px 4px rgba(0,0,0,.4) !important; }
+.zsl-logo span { color: #e5e7eb !important; }
+.zsl-loc-chip { background: #1a1d23 !important; border-color: #374151 !important; color: #e5e7eb !important; }
+.zsl-loc-chip svg { color: #e5e7eb !important; }
+.zsl-loc-chip:hover { background: #252830 !important; }
+.zsl-loc-hello { color: #9ca3af !important; }
+.zsl-loc-name { color: #e5e7eb !important; }
+.zsl-search input[type="search"] { background: #252830 !important; border-color: #374151 !important; color: #e5e7eb !important; }
+.zsl-search input[type="search"]:focus { background: #252830 !important; }
+.zsl-action { color: #e5e7eb !important; }
+.zsl-action:hover { background: #252830 !important; }
+.zsl-action svg { color: #e5e7eb !important; }
+.zsl-action-label { color: #e5e7eb !important; }
+.zsl-dark-toggle { color: #f59e0b !important; background: #252830 !important; border-color: #374151 !important; }
+.zsl-dark-toggle:hover { background: #374151 !important; }
+.zsl-dark-toggle svg { color: #f59e0b !important; }
+.zsl-currency-select { background-color: #1a1d23 !important; border-color: #374151 !important; color: #e5e7eb !important; }
+
+/* ─── STORE FOOTER ─── */
+.zsl-footer { background: #0a0b0e !important; color: #d1d5db !important; }
+.zsl-footer-links a { color: #9ca3af !important; }
+.zsl-footer-links a:hover { color: #ffcc00 !important; }
+.zsl-footer-bottom { border-top-color: #1f2937 !important; color: #6b7280 !important; }
+.zsl-loc-pill { border-color: #374151 !important; color: #9ca3af !important; }
+
+/* Store modals (localidad + instalación) */
+.zsl-imodal-box { background: #1a1d23 !important; }
+.zsl-imodal-head b { color: #e5e7eb !important; }
+.zsl-imodal-box p { color: #d1d5db !important; }
+.zsl-imodal-close { background: #374151 !important; color: #e5e7eb !important; }
+.zsl-imodal-close:hover { background: #4b5563 !important; }
+.zsl-loc-box { background: #1e2028 !important; border: 1px solid #374151 !important; }
+.zsl-loc-head strong { color: #f3f4f6 !important; }
+.zsl-loc-close { background: #374151 !important; color: #e5e7eb !important; }
+.zsl-loc-close:hover { background: #4b5563 !important; }
+.zsl-loc-help { color: #d1d5db !important; }
+.zsl-loc-option { background: #2a2d35 !important; border: 2px solid #555 !important; color: #e5e7eb !important; }
+.zsl-loc-option:hover { background: #3a3d45 !important; border-color: #ffcc00 !important; }
+.zsl-loc-option.active { background: #3a3d45 !important; border-color: #ffcc00 !important; }
+.zsl-loc-option span { color: #f3f4f6 !important; }
+.zsl-loc-option small { color: #b0b0b0 !important; }
+
+/* ─── HOME: body y secciones ─── */
+.zfh-currency-label { color: #d1d5db !important; }
+.zfh-currency-select { background-color: #1a1d23 !important; border-color: #374151 !important; color: #e5e7eb !important; }
+.zfh-trust-item { background: #1a1d23 !important; border-color: #374151 !important; }
+.zfh-trust-item svg { color: #e5e7eb !important; background: #ffcc00 !important; }
+.zfh-trust-item b { color: #e5e7eb !important; }
+.zfh-trust-item small { color: #9ca3af !important; }
+
+/* Home headings */
+.zfh-h2, .zfh-products-head h2, .zfh-testi .zfh-h2 { color: #e5e7eb !important; }
+.zfh-loc-note { color: #9ca3af !important; }
+.zfh-loc-note strong { color: #e5e7eb !important; }
+
+/* Home currency buttons */
+.zfh-cur-btn { background: #1a1d23 !important; border-color: #374151 !important; color: #d1d5db !important; }
+.zfh-cur-btn:hover { border-color: #ffcc00 !important; background: #252830 !important; }
+.zfh-cur-btn.active { background: #e5e7eb !important; color: #111827 !important; border-color: #e5e7eb !important; }
+
+/* Home sidebar categories */
+.zfh-cats { background: #1a1d23 !important; border-color: #374151 !important; }
+.zfh-cats summary { color: #e5e7eb !important; border-bottom-color: #374151 !important; background: #252830 !important; }
+.zfh-cats summary::after { color: #9ca3af !important; }
+.zfh-cat-link { color: #d1d5db !important; }
+.zfh-cat-link:hover { background: #252830 !important; color: #ffcc00 !important; }
+.zfh-cat-dot { background: #ffcc00 !important; }
+
+/* Home category cards */
+.zfh-catcard { background: #1a1d23 !important; border-color: #374151 !important; }
+.zfh-catcard:hover { border-color: #ffcc00 !important; }
+.zfh-catcard-name { color: #e5e7eb !important; }
+.zfh-catcard-active { border-color: #ffcc00 !important; background: #252830 !important; }
+
+/* Home product cards */
+.zfh-card { background: #1a1d23 !important; border-color: #374151 !important; }
+.zfh-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.4) !important; }
+.zfh-card-img { background: #252830 !important; }
+.zfh-card-name { color: #e5e7eb !important; }
+.zfh-card-name:hover { color: #ffcc00 !important; }
+.zfh-card-price { color: #e5e7eb !important; }
+.zfh-card-price del { color: #6b7280 !important; }
+.zfh-badge-new { background: #1e3a5f !important; color: #93c5fd !important; }
+
+/* Home testimonial cards */
+.zfh-testi-card { background: #1a1d23 !important; border-color: #374151 !important; }
+.zfh-testi-text { color: #d1d5db !important; }
+.zfh-testi-name { color: #e5e7eb !important; }
+.zfh-testi-name small { color: #6b7280 !important; }
+.zfh-testi-stars .zfl-star-empty { color: #4b5563 !important; }
+
+/* Home empty state */
+.zfh-empty { background: #1a1d23 !important; border-color: #374151 !important; color: #9ca3af !important; }
+
+/* Home install modal */
+.zfh-imodal-box { background: #1a1d23 !important; }
+.zfh-imodal-head b { color: #e5e7eb !important; }
+.zfh-imodal-box p { color: #d1d5db !important; }
+.zfh-imodal-close { background: #374151 !important; color: #e5e7eb !important; }
+.zfh-imodal-close:hover { background: #4b5563 !important; }
+
+/* Home dual columns */
+.zfh-dual-col { background: #1a1d23 !important; border-color: #374151 !important; }
+.zfh-dual-title { color: #e5e7eb !important; }
+.zfh-dual-item:hover { background: #252830 !important; }
+.zfh-dual-item img { background: #252830 !important; border-color: #374151 !important; }
+.zfh-dual-item-name { color: #e5e7eb !important; }
+.zfh-dual-item small { color: #9ca3af !important; }
+
+/* Home more button */
+.zfh-more-btn { background: #ffcc00 !important; color: #111827 !important; }
+.zfh-more-btn:hover { background: #e6b800 !important; }
+.zfh-more-count { color: #9ca3af !important; }
+
+/* Home install bar */
+.zfh-install { background: #1a1d23 !important; }
+.zfh-install-text { color: #e5e7eb !important; }
+
+/* ─── CHECKOUT ─── */
+.er-checkout { color: #e5e7eb !important; }
+.er-checkout h1, .er-checkout h2, .er-summary h2 { color: #e5e7eb !important; }
+.er-note { color: #9ca3af !important; }
+.er-section { background: #1a1d23 !important; border-color: #374151 !important; }
+.er-field label, .er-grid-2 label { color: #d1d5db !important; }
+.er-field input[type="text"],
+.er-field input[type="email"],
+.er-field input[type="tel"],
+.er-field textarea { background: #252830 !important; border-color: #4b5563 !important; color: #e5e7eb !important; }
+.er-field input:focus, .er-field textarea:focus { background: #252830 !important; }
+.er-field.er-invalid input, .er-field.er-invalid textarea { background: #2d1b1b !important; }
+.er-help, .er-field small { color: #6b7280 !important; }
+.er-errors { background: #2d1b1b !important; border-color: #7f1d1d !important; color: #fca5a5 !important; }
+.er-errors a { color: #fca5a5 !important; }
+
+/* Checkout modality choices */
+.er-choice { border-color: #374151 !important; background: #1a1d23 !important; color: #e5e7eb !important; }
+.er-choice:has(input:checked) { border-color: #2563eb !important; background: #1e293b !important; }
+.er-choice small { color: #9ca3af !important; }
+.er-choice small em { color: #e5e7eb !important; }
+
+/* Checkout payment info */
+.er-payment-info { background: #252830 !important; border-color: #374151 !important; }
+.er-payment-info h3 { color: #e5e7eb !important; }
+.er-payment-info p { color: #d1d5db !important; }
+.er-payment-info .er-zelle-number { color: #e5e7eb !important; }
+.er-pay-number { color: #e5e7eb !important; }
+.er-pay-number span { background: #252830 !important; border-color: #ffcc00 !important; }
+.er-pay-holder { color: #d1d5db !important; }
+.er-pay-account { color: #9ca3af !important; }
+.er-pay-help { color: #9ca3af !important; }
+
+/* Checkout tip / rounding */
+.er-no-tip { color: #9ca3af !important; }
+.er-tip-btn { background: #1a1d23 !important; border-color: #374151 !important; color: #d1d5db !important; }
+.er-tip-btn.active { background: #ffcc00 !important; color: #111827 !important; border-color: #ffcc00 !important; }
+
+/* Checkout pickup info */
+.er-pickup-info { background: #2d2410 !important; border-color: #ffcc00 !important; color: #fbbf24 !important; }
+
+/* Checkout no-tip button */
+.er-no-tip { color: #9ca3af !important; }
+.er-no-tip:hover { color: #e5e7eb !important; }
+.er-no-tip.active { color: #ef4444 !important; }
+
+/* Checkout help line */
+.er-help-line { color: #9ca3af !important; }
+.er-help-line a { color: #e5e7eb !important; }
+
+/* Checkout pay separator */
+.er-pay-sep { background: #374151 !important; }
+
+/* Checkout option active state (propina %) */
+.er-option.active, .er-option.active:hover, .er-option.active:focus { background: #ffcc00 !important; color: #111827 !important; border-color: #ffcc00 !important; }
+
+/* Checkout submit button */
+.er-submit { background: #ffcc00 !important; color: #111827 !important; }
+.er-submit:hover { background: #e6b800 !important; }
+
+/* Checkout final total */
+.er-final { background: #1a1d23 !important; border-color: #374151 !important; }
+
+/* Checkout input fields - force dark */
+.er-checkout input[type="text"],
+.er-checkout input[type="email"],
+.er-checkout input[type="tel"],
+.er-checkout textarea,
+.er-checkout select {
+    background: #252830 !important;
+    border-color: #4b5563 !important;
+    color: #e5e7eb !important;
+}
+.er-checkout input:focus,
+.er-checkout textarea:focus,
+.er-checkout select:focus {
+    background: #252830 !important;
+    border-color: #ffcc00 !important;
+    box-shadow: 0 0 0 3px rgba(255, 204, 0, .2) !important;
+}
+.er-checkout input::placeholder,
+.er-checkout textarea::placeholder {
+    color: #6b7280 !important;
+}
+
+/* Checkout alert */
+.er-alert { background: #2d1b1b !important; border-color: #7f1d1d !important; color: #fca5a5 !important; }
+.er-alert span { color: #fca5a5 !important; }
+
+/* Checkout proof file input */
+.er-proof input[type="file"] { background: #1e293b !important; border-color: #4b5563 !important; color: #93c5fd !important; }
+.er-proof-btn { background: #252830 !important; color: #e5e7eb !important; border-color: #374151 !important; }
+.er-proof-btn:hover { background: #2d2f36 !important; }
+.er-proof-preview { background: #252830 !important; border-color: #374151 !important; }
+
+/* Checkout family section */
+.er-family { background: #1a1d23 !important; border-color: #ffcc00 !important; }
+.er-family h2 { color: #e5e7eb !important; }
+
+/* Checkout address chips (mobile) */
+.er-addr-chip { background: #1a1d23 !important; border-color: #374151 !important; color: #e5e7eb !important; }
+.er-addr-chip:hover { background: #252830 !important; border-color: #2563eb !important; }
+.er-addr-chip.active { background: #1e293b !important; border-color: #2563eb !important; }
+
+/* Thanks page */
+.er-thanks-card { background: #1a1d23 !important; border-color: #374151 !important; color: #e5e7eb !important; }
+.er-thanks-card h1 { color: #e5e7eb !important; }
+.er-thanks-card p { color: #d1d5db !important; }
+.er-thanks-sub { color: #9ca3af !important; }
+.er-thanks-sub strong { color: #e5e7eb !important; }
+.er-thanks-steps li { background: #252830 !important; border-color: #374151 !important; color: #d1d5db !important; }
+
+/* Checkout autofill override */
+.er-checkout .er-field input:-webkit-autofill,
+.er-checkout .er-field input:-webkit-autofill:hover,
+.er-checkout .er-field input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px #252830 inset !important;
+    -webkit-text-fill-color: #e5e7eb !important;
+}
+
+/* Checkout saved addresses */
+.er-addr-chip { background: #1a1d23 !important; border-color: #374151 !important; color: #e5e7eb !important; }
+.er-addr-chip:hover { background: #252830 !important; border-color: #2563eb !important; }
+.er-addr-chip.active { background: #1e293b !important; border-color: #2563eb !important; }
+.er-saved-addresses small { color: #6b7280 !important; }
+
+/* Checkout summary */
+.er-summary { background: #1a1d23 !important; border-color: #374151 !important; }
+.er-summary h2 { color: #e5e7eb !important; }
+.er-product { border-color: #374151 !important; background: #252830 !important; }
+.er-product-image { background: #1a1d23 !important; }
+.er-product-image img { border-color: #374151 !important; }
+.er-product-content b { color: #e5e7eb !important; }
+.er-product-content small { color: #9ca3af !important; }
+.er-product > strong { color: #e5e7eb !important; }
+.er-quantity { background: #374151 !important; color: #e5e7eb !important; }
+.er-summary-row { border-bottom-color: #374151 !important; color: #d1d5db !important; }
+.er-summary-total { color: #e5e7eb !important; }
+.er-loading { color: #9ca3af !important; }
+
+/* Checkout secondary button */
+.er-btn-secondary { background: #1a1d23 !important; color: #e5e7eb !important; border-color: #374151 !important; }
+.er-btn-secondary:hover { background: #252830 !important; }
+
+/* ─── RASTREO ─── */
+.er-track-form label { color: #d1d5db !important; }
+.er-track-form input { background: #252830 !important; border-color: #4b5563 !important; color: #e5e7eb !important; }
+.er-track-form input:focus { background: #252830 !important; }
+.er-track-meta { color: #9ca3af !important; }
+.er-track-meta strong { color: #e5e7eb !important; }
+.er-track-photo { background: #252830 !important; border-color: #374151 !important; color: #e5e7eb !important; }
+.er-track-photo:hover { background: #2d2f36 !important; }
+.er-help-line { color: #9ca3af !important; }
+.er-help-line a { color: #e5e7eb !important; }
+.er-track-steps li.done { background: #0f2a1a !important; border-color: #16a34a !important; }
+.er-track-status { color: #e5e7eb !important; }
+
+/* Rastreo status badges */
+.er-st-on-hold, .er-st-pending { background: #2d2410 !important; color: #fbbf24 !important; }
+.er-st-processing, .er-st-ready { background: #1e293b !important; color: #93c5fd !important; }
+.er-st-completed { background: #0f2a1a !important; color: #86efac !important; }
+.er-st-cancelled, .er-st-failed { background: #2d1b1b !important; color: #fca5a5 !important; }
+
+/* ─── REVIEW POPUP ─── */
+.er-review-box { background: #1a1d23 !important; border-top-color: #ffcc00 !important; }
+.er-review-box h3 { color: #e5e7eb !important; }
+.er-review-sub { color: #9ca3af !important; }
+.er-review-close { background: #374151 !important; color: #e5e7eb !important; }
+.er-review-close:hover { background: #4b5563 !important; }
+.er-review-box label { color: #d1d5db !important; }
+.er-review-box input,
+.er-review-box textarea { background: #252830 !important; border-color: #4b5563 !important; color: #e5e7eb !important; }
+.er-review-box input:focus,
+.er-review-box textarea:focus { border-color: #ffcc00 !important; }
+.er-review-points { color: #9ca3af !important; }
+.er-review-thanks { color: #e5e7eb !important; }
+
+/* ─── THANKS PAGE ─── */
+.er-thanks-box { background: #1a1d23 !important; border-color: #374151 !important; }
+.er-thanks-box h1 { color: #e5e7eb !important; }
+.er-thanks-box p { color: #d1d5db !important; }
+.er-review-sep { background: #374151 !important; }
+.er-review-title { color: #e5e7eb !important; }
+.er-review-form label { color: #d1d5db !important; }
+.er-review-form input, .er-review-form textarea { background: #252830 !important; border-color: #4b5563 !important; color: #e5e7eb !important; }
+.er-review-form input:focus, .er-review-form textarea:focus { border-color: #ffcc00 !important; }
+
+/* ─── FACTURA ─── */
+.er-invoice { background: #1a1d23 !important; color: #e5e7eb !important; }
+.er-invoice h1 { color: #e5e7eb !important; }
+.er-invoice table th { background: #252830 !important; color: #e5e7eb !important; }
+.er-invoice table td { border-bottom-color: #374151 !important; color: #d1d5db !important; }
+
+/* ─── OVERLAY / SPINNER ─── */
+.er-overlay { background: rgba(15, 17, 21, .94) !important; }
+.er-overlay-box { color: #e5e7eb !important; }
+.er-overlay-box small { color: #9ca3af !important; }
+
+/* ─── LOGIN ─── */
+.zfl-login-body { background: #0a0b0e !important; }
+.zfl-login-card { background: #1a1d23 !important; border-top-color: #ffcc00 !important; }
+.zfl-login-card h1 { color: #e5e7eb !important; }
+.zfl-login-sub { color: #9ca3af !important; }
+.zfl-login-error { background: #2d2410 !important; border-color: #7a4a00 !important; color: #fbbf24 !important; }
+.zfl-login-form label { color: #d1d5db !important; }
+.zfl-login-form input[type="text"],
+.zfl-login-form input[type="password"] { background: #252830 !important; border-color: #4b5563 !important; color: #e5e7eb !important; }
+.zfl-login-form input:focus { background: #252830 !important; }
+
+/* ─── PANEL ADMIN ─── */
+.zfl-body { background: #0f1115 !important; color: #e5e7eb !important; }
+.zfl-topnav a { color: #e5e7eb !important; }
+.zfl-topnav a:hover { background: #252830 !important; color: #ffcc00 !important; }
+.zfl-dark-toggle { color: #f59e0b !important; background: #252830 !important; }
+.zfl-dark-toggle:hover { background: #374151 !important; color: #fbbf24 !important; }
+.zfl-dark-toggle svg { color: #f59e0b !important; }
+.zfl-section { background: #1a1d23 !important; border-color: #374151 !important; }
+.zfl-section h2, .zfl-section h3 { color: #e5e7eb !important; }
+.zfl-card { background: #1a1d23 !important; border-color: #374151 !important; }
+.zfl-card h3 { color: #e5e7eb !important; }
+
+/* Panel forms */
+.zfl-section label { color: #d1d5db !important; }
+.zfl-section input[type="text"],
+.zfl-section input[type="number"],
+.zfl-section input[type="url"],
+.zfl-section input[type="email"],
+.zfl-section input[type="password"],
+.zfl-section textarea,
+.zfl-section select { background: #252830 !important; border-color: #4b5563 !important; color: #e5e7eb !important; }
+.zfl-section input:focus,
+.zfl-section textarea:focus,
+.zfl-section select:focus { border-color: #ffcc00 !important; background: #252830 !important; }
+
+/* Panel tables */
+.zfl-table { background: #1a1d23 !important; border-color: #374151 !important; }
+.zfl-table th { background: #252830 !important; color: #e5e7eb !important; border-bottom-color: #374151 !important; }
+.zfl-table td { border-bottom-color: #374151 !important; color: #d1d5db !important; }
+.zfl-table tr:hover td { background: #252830 !important; }
+
+/* Panel cards */
+.zfl-stat-card { background: #1a1d23 !important; border-color: #374151 !important; }
+.zfl-stat-card h3 { color: #e5e7eb !important; }
+.zfl-stat-card .zfl-stat-num { color: #e5e7eb !important; }
+.zfl-stat-card .zfl-stat-sub { color: #9ca3af !important; }
+
+/* Panel order cards */
+.zfl-order-card { background: #1a1d23 !important; border-color: #374151 !important; }
+.zfl-order-card:hover { background: #252830 !important; }
+.zfl-order-row { border-bottom-color: #374151 !important; }
+.zfl-order-label { color: #9ca3af !important; }
+.zfl-order-num { color: #e5e7eb !important; }
+.zfl-order-date { color: #6b7280 !important; }
+.zfl-order-total { color: #e5e7eb !important; }
+.zfl-order-total-cur { color: #c084fc !important; }
+
+/* Panel detail cards */
+.zfl-detail-card { background: #1a1d23 !important; border-color: #374151 !important; }
+.zfl-detail-card h3 { color: #e5e7eb !important; }
+.zfl-detail-item { border-bottom-color: #374151 !important; }
+.zfl-detail-item-name { color: #e5e7eb !important; }
+
+/* Panel review cards */
+.zfl-review-card { background: #1a1d23 !important; border-color: #374151 !important; }
+.zfl-review-text { color: #d1d5db !important; }
+.zfl-review-author { color: #e5e7eb !important; }
+.zfl-star-empty { color: #4b5563 !important; }
+
+/* Panel pay card */
+.zfl-pay-card { background: #1a1d23 !important; border-left-color: #ffcc00 !important; }
+
+/* Panel buttons */
+.zfl-btn-primary { background: #ffcc00 !important; color: #111827 !important; }
+.zfl-btn-primary:hover { background: #e6b800 !important; }
+.zfl-btn-cancel { background: #252830 !important; color: #e5e7eb !important; border-color: #374151 !important; }
+.zfl-btn-cancel:hover { background: #374151 !important; }
+.zfl-order-btn { background: #252830 !important; color: #e5e7eb !important; border-color: #374151 !important; }
+.zfl-order-btn:hover { background: #374151 !important; }
+.zfl-order-btn-primary { background: #ffcc00 !important; color: #111827 !important; border-color: #ffcc00 !important; }
+
+/* Panel status badges */
+.zfl-ost-processing { background: #1e293b !important; color: #93c5fd !important; }
+.zfl-ost-completed { background: #0f2a1a !important; color: #86efac !important; }
+.zfl-ost-cancelled { background: #2d1b1b !important; color: #fca5a5 !important; }
+.zfl-ost-on-hold, .zfl-ost-pending { background: #2d2410 !important; color: #fbbf24 !important; }
+.zfl-oph-1 { background: #2d2410 !important; color: #fbbf24 !important; }
+.zfl-oph-2 { background: #1e293b !important; color: #93c5fd !important; }
+.zfl-oph-3 { background: #0f2a1a !important; color: #86efac !important; }
+.zfl-oph-4 { background: #0f2a1a !important; color: #86efac !important; }
+
+/* Panel phases */
+.zfl-phases li.done .zfl-phase-dot { background: #16a34a !important; color: #fff !important; }
+.zfl-phases li.current .zfl-phase-dot { background: #ffcc00 !important; color: #111827 !important; }
+.zfl-phases li.done span:last-child { color: #e5e7eb !important; }
+
+/* Panel empty states */
+.zfl-empty { background: #1a1d23 !important; border-color: #374151 !important; color: #9ca3af !important; }
+
+/* Panel catch-all: cualquier fondo blanco restante */
+.zfl-section [style*="background: #fff"],
+.zfl-section input, .zfl-section select, .zfl-section textarea {
+    background: #252830 !important;
+    color: #e5e7eb !important;
+    border-color: #4b5563 !important;
+}
+
+/* Panel zelle card body */
+.zfl-zelle-card-body { background: #1a1d23 !important; }
+.zfl-zelle-card-body h3 { color: #e5e7eb !important; }
+
+/* Panel order body */
+.zfl-order-body { background: #1a1d23 !important; }
+
+/* Panel new section (dashed border) */
+.zfl-new { background: #252830 !important; border-color: #7a4a00 !important; }
+
+/* Panel pages/pagination */
+.zfl-page { background: #1a1d23 !important; border-color: #374151 !important; color: #d1d5db !important; }
+.zfl-page:hover { background: #252830 !important; }
+
+/* Panel product row hover */
+.zfl-product-row:hover { background: #252830 !important; }
+
+/* Panel modal body */
+.zfl-modal-body { background: #1a1d23 !important; }
+
+/* Panel error */
+.zfl-error { background: #2d2410 !important; border-color: #7a4a00 !important; color: #fbbf24 !important; }
+
+/* Panel stat link hover */
+.zfl-stat-link:hover { background: #252830 !important; }
+
+/* Panel modal */
+.zfl-modal-overlay { background: rgba(0,0,0,.7) !important; }
+.zfl-modal { background: #1a1d23 !important; border-color: #374151 !important; }
+.zfl-modal h3 { color: #e5e7eb !important; }
+.zfl-modal label { color: #d1d5db !important; }
+.zfl-modal input, .zfl-modal textarea, .zfl-modal select { background: #252830 !important; border-color: #4b5563 !important; color: #e5e7eb !important; }
+
+/* Panel tabs */
+.zfl-tab-nav { border-bottom-color: #374151 !important; }
+.zfl-tab-btn { color: #9ca3af !important; }
+.zfl-tab-btn.active { color: #ffcc00 !important; border-bottom-color: #ffcc00 !important; }
+
+/* Panel subnav (tabs de pedidos, categorías, etc.) */
+.zfl-subnav-link { background: #252830 !important; color: #9ca3af !important; border-color: #374151 !important; }
+.zfl-subnav-link:hover { background: #374151 !important; color: #e5e7eb !important; }
+.zfl-subnav-link.active { background: #000 !important; color: #ffcc00 !important; border-color: #000 !important; }
+
+/* Panel tab title */
+.zfl-tab-title { color: #e5e7eb !important; }
+
+/* Panel tab count badge */
+.zfl-tab-count { background: #374151 !important; color: #9ca3af !important; }
+.zfl-subnav-link.active .zfl-tab-count { background: #ffcc00 !important; color: #000 !important; }
+
+/* Panel search */
+.zfl-search input, .zfl-search select { background: #252830 !important; border-color: #4b5563 !important; color: #e5e7eb !important; }
+.zfl-search input:focus, .zfl-search select:focus { border-color: #ffcc00 !important; }
+
+/* Panel category cards */
+.zfl-cat-card { background: #1a1d23 !important; border-color: #374151 !important; }
+.zfl-cat-card:hover { border-color: #ffcc00 !important; }
+.zfl-cat-card-name { color: #e5e7eb !important; }
+
+/* Panel divider */
+.zfl-divider { background: #374151 !important; }
+
+/* Panel stat cards */
+.zfl-stat { background: #1a1d23 !important; border-color: #374151 !important; }
+.zfl-stat-num { color: #e5e7eb !important; }
+.zfl-stat-label { color: #9ca3af !important; }
+.zfl-stat-sub { color: #6b7280 !important; }
+.zfl-stat-link { background: #1a1d23 !important; border-color: #ffcc00 !important; }
+.zfl-stat-link:hover { background: #252830 !important; }
+.zfl-stat-alert .zfl-stat-num { color: #fbbf24 !important; }
+
+/* Panel headings + labels */
+.zfl-section h1, .zfl-section h2, .zfl-section h3,
+.zfl-section h4, .zfl-section h5, .zfl-section h6 { color: #e5e7eb !important; }
+.zfl-dash-h2 { color: #e5e7eb !important; }
+.zfl-dash-more { color: #9ca3af !important; }
+.zfl-bar-nums b { color: #e5e7eb !important; }
+.zfl-currency-head b { color: #e5e7eb !important; }
+.zfl-review-author { color: #e5e7eb !important; }
+
+/* Panel form elements */
+.zfl-section input, .zfl-section select, .zfl-section textarea {
+    background: #252830 !important;
+    color: #e5e7eb !important;
+    border-color: #4b5563 !important;
+}
+
+/* Panel any remaining white backgrounds */
+.zfl-section [style*="background: #fff"],
+.zfl-section [style*="background:#fff"] {
+    background: #1a1d23 !important;
+}
+
+/* Panel error */
+.zfl-error { background: #2d2410 !important; border-color: #7a4a00 !important; color: #fbbf24 !important; }
+
+/* Panel product rows */
+.zfl-product-row { border-bottom-color: #374151 !important; }
+.zfl-product-row:hover { background: #252830 !important; }
+.zfl-product-name { color: #e5e7eb !important; }
+.zfl-product-price { color: #e5e7eb !important; }
+.zfl-product-stock { color: #9ca3af !important; }
+
+/* Panel Zelle accounts */
+.zfl-zelle-card { background: #1a1d23 !important; border-color: #374151 !important; }
+.zfl-zelle-card.active { border-color: #16a34a !important; }
+
+/* Panel payroll */
+.zfl-payroll-row { background: #1a1d23 !important; border-color: #374151 !important; }
+.zfl-payroll-row:hover { background: #252830 !important; }
+
+/* ─── INVOICE (factura.php) ─── */
+.factura-wrap { background: #1a1d23 !important; color: #e5e7eb !important; }
+
+/* ─── PANEL CATCH-ALL: fondo blanco → oscuro ─── */
+.zfl-section div, .zfl-section section, .zfl-section aside,
+.zfl-section article, .zfl-section nav, .zfl-section main,
+.zfl-section header, .zfl-section footer, .zfl-section form,
+.zfl-section ul, .zfl-section ol, .zfl-section li,
+.zfl-section a, .zfl-section button, .zfl-section td, .zfl-section th {
+    background-color: #1a1d23 !important;
+    border-color: #374151 !important;
+}
+
+/* ─── PANEL CATCH-ALL: texto oscuro → claro ─── */
+.zfl-section div, .zfl-section section, .zfl-section aside,
+.zfl-section article, .zfl-section nav, .zfl-section main,
+.zfl-section header, .zfl-section footer, .zfl-section form,
+.zfl-section ul, .zfl-section ol, .zfl-section li,
+.zfl-section a, .zfl-section button, .zfl-section td, .zfl-section th,
+.zfl-section span, .zfl-section p, .zfl-section label,
+.zfl-section h1, .zfl-section h2, .zfl-section h3,
+.zfl-section h4, .zfl-section h5, .zfl-section h6,
+.zfl-section b, .zfl-section strong, .zfl-section small,
+.zfl-section input, .zfl-section select, .zfl-section textarea {
+    color: #e5e7eb !important;
+}
+
+/* ─── RE-ENABLE SEMANTIC COLORS ─── */
+.zfl-section .zfl-phase-done, .zfl-section .zfl-phase-current,
+.zfl-section .zfl-status-active, .zfl-section .zfl-status-publish,
+.zfl-section .zfl-paid-yes, .zfl-section .zfl-new-count,
+.zfl-section .zfl-ost-active, .zfl-section .zfl-ost-completed,
+.zfl-section .zfl-oph-done, .zfl-section .zfl-status-completado { color: #22c55e !important; }
+.zfl-section .zfl-paid-no, .zfl-section .zfl-status-cancelado,
+.zfl-section .zfl-ost-cancelled, .zfl-section .zfl-status-error { color: #ef4444 !important; }
+.zfl-section .zfl-status-borrador, .zfl-section .zfl-ost-on-hold,
+.zfl-section .zfl-ost-pending, .zfl-section .zfl-oph-1 { color: #f59e0b !important; }
+.zfl-section .zfl-phase-current { color: #60a5fa !important; }
+.zfl-section .zfl-phase-pending { color: #6b7280 !important; }
+.zfl-section .zfl-phase-dot.done, .zfl-section .zfl-phase-dot.current { color: #000 !important; }
+.zfl-section a { color: #60a5fa !important; }
+.zfl-section .zfl-btn-primary, .zfl-section .zfl-order-btn-primary { color: #111827 !important; }
+.zfl-section .zfl-tab-count { color: #9ca3af !important; }
+.zfl-section .zfl-subnav-link.active .zfl-tab-count { color: #000 !important; }
+
+/* ─── RE-ENABLE SPECIFIC BACKGROUNDS ─── */
+.zfl-section .zfl-phase-dot.done, .zfl-section .zfl-phase-dot.current { background: #22c55e !important; }
+.zfl-section .zfl-phase-dot.pending { background: #374151 !important; }
+.zfl-section .zfl-btn-primary, .zfl-section .zfl-order-btn-primary { background: #ffcc00 !important; }
+.zfl-section .zfl-tab-nav { background: #1a1d23 !important; }
+.zfl-section .zfl-tab-btn.active { border-bottom-color: #ffcc00 !important; }
+.zfl-section .zfl-subnav-link.active { background: #000 !important; border-color: #000 !important; }
+.zfl-section .zfl-status-active, .zfl-section .zfl-status-publish,
+.zfl-section .zfl-ost-active, .zfl-section .zfl-ost-completed { background: #052e16 !important; border-color: #22c55e !important; }
+.zfl-section .zfl-status-cancelado, .zfl-section .zfl-ost-cancelled { background: #450a0a !important; border-color: #ef4444 !important; }
+.zfl-section .zfl-status-borrador, .zfl-section .zfl-ost-on-hold,
+.zfl-section .zfl-ost-pending { background: #451a03 !important; border-color: #f59e0b !important; }
+.zfl-section .zfl-table th { background: #252830 !important; }
+.zfl-section .zfl-table tr:hover td { background: #252830 !important; }
+.zfl-section .zfl-order-card:hover { background: #252830 !important; }
+.zfl-section .zfl-product-row:hover { background: #252830 !important; }
+.zfl-section .zfl-page:hover { background: #252830 !important; }
+.zfl-section .zfl-stat-link { border-color: #ffcc00 !important; }
+.zfl-section .zfl-stat-link:hover { background: #252830 !important; }
+.zfl-section .zfl-new { background: #252830 !important; border-color: #7a4a00 !important; }
+.zfl-section .zfl-error { background: #2d2410 !important; border-color: #7a4a00 !important; color: #fbbf24 !important; }
+.zfl-section input:focus, .zfl-section textarea:focus, .zfl-section select:focus { border-color: #ffcc00 !important; }
+.zfl-section .zfl-empty { background: #1a1d23 !important; border-color: #374151 !important; color: #6b7280 !important; }
+.zfl-section .zfl-zelle-card-body { background: #1a1d23 !important; }
+.zfl-section .zfl-order-body { background: #1a1d23 !important; }
+.zfl-section .zfl-modal-body { background: #1a1d23 !important; }
+.zfl-section .zfl-pay-card { background: #1a1d23 !important; border-left-color: #ffcc00 !important; }
+.zfl-section .zfl-payroll-row { background: #1a1d23 !important; }
+.zfl-section .zfl-payroll-row:hover { background: #252830 !important; }
+
+/* ─── Single Product page ─── */
+html.dark-mode .zfl-sp-bc { color: #9ca3af !important; }
+html.dark-mode .zfl-sp-bc a { color: #60a5fa !important; }
+html.dark-mode .zfl-sp-name { color: #f3f4f6 !important; }
+html.dark-mode .zfl-sp-rating { color: #9ca3af !important; }
+html.dark-mode .zfl-sp-price-item { color: #f3f4f6 !important; }
+html.dark-mode .zfl-sp-desc { color: #d1d5db !important; }
+html.dark-mode .zfl-sp-meta-tag { background: #252830 !important; color: #d1d5db !important; }
+html.dark-mode .zfl-sp-full { color: #d1d5db !important; }
+html.dark-mode .zfl-sp-full p { color: #d1d5db !important; }
+html.dark-mode .zfl-sp-section h2 { color: #f3f4f6 !important; }
+html.dark-mode .zfl-sp-rev-item { border-bottom-color: #374151 !important; }
+html.dark-mode .zfl-sp-rev-name { color: #f3f4f6 !important; }
+html.dark-mode .zfl-sp-rev-text { color: #d1d5db !important; }
+html.dark-mode .zfl-sp-related h2 { color: #f3f4f6 !important; }
+html.dark-mode .zfl-sp-rel-card { background: #1a1d23 !important; border-color: #374151 !important; }
+html.dark-mode .zfl-sp-rel-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.3) !important; }
+html.dark-mode .zfl-sp-rel-card-name { color: #f3f4f6 !important; }
+html.dark-mode .zfl-sp-rel-card-price { color: #9ca3af !important; }
+html.dark-mode .zfl-sp-main-img { background: #252830 !important; }
+html.dark-mode .zfl-sp-add-btn { background: #ffcc00 !important; color: #111827 !important; }
+html.dark-mode .zfl-sp-add-btn:disabled { background: #374151 !important; color: #6b7280 !important; }
+html.dark-mode .zfl-sp-wa { background: #25d366 !important; }
+html.dark-mode .zfl-sp-rev-avatar { background: #422006 !important; color: #fbbf24 !important; }
+html.dark-mode .zfl-sp-rev-item { border-bottom-color: #374151 !important; }
+
+/* ─── RESPONSIVE DARK OVERRIDES ─── */
+@media (max-width: 768px) {
+    html.dark-mode .zsl-header { background: #1a1d23 !important; }
+    html.dark-mode .zsl-actions { border-top-color: #374151 !important; }
+    html.dark-mode .zfl-section { background: #1a1d23 !important; }
+    html.dark-mode .er-section { background: #1a1d23 !important; }
+}
+
+} /* end dark-mode */

@@ -1,0 +1,2475 @@
+.zfl-body {
+    margin: 0;
+    background: #f1f5f9;
+    color: #0f172a;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.zfl-no-scroll { overflow: hidden; }
+
+.zfl-topbar {
+    background: #000000;
+    border-bottom: 3px solid #ffcc00;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+    transition: transform .25s ease;
+}
+
+.zfl-topbar.zfl-topbar-hidden {
+    transform: translateY(-110%);
+}
+
+.zfl-topbar-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.zfl-brand { display: inline-flex; align-items: center; text-decoration: none; }
+.zfl-brand-logo { height: 36px; width: auto; display: block; }
+
+/* Selector de localidad global */
+.zfl-loc-switch {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.zfl-loc-switch-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: #9ca3af;
+}
+
+.zfl-loc-switch select {
+    background: #1f1f23;
+    color: #ffcc00;
+    border: 1px solid #374151;
+    border-radius: 8px;
+    padding: 7px 10px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    min-width: 150px;
+}
+
+.zfl-loc-switch select:focus {
+    outline: none;
+    border-color: #ffcc00;
+}
+
+.zfl-topnav { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.zfl-topnav a {
+    color: #f4f4f5;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+.zfl-topnav a:hover { background: #1f1f23; color: #ffcc00; }
+.zfl-topnav a.zfl-logout { color: #ffcc00; }
+
+/* Dark mode toggle button */
+.zfl-dark-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: #f4f4f5;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background .15s ease;
+}
+.zfl-dark-toggle:hover { background: #1f1f23; color: #ffcc00; }
+.zfl-dark-toggle .zfl-icon-moon { display: none; }
+.zfl-dark-toggle .zfl-icon-sun { display: inline-block; }
+html.dark-mode .zfl-dark-toggle .zfl-icon-moon { display: inline-block; }
+html.dark-mode .zfl-dark-toggle .zfl-icon-sun { display: none; }
+
+.zfl-main { max-width: 1180px; margin: 0 auto; padding: 28px 22px 60px; }
+
+.zfl-section {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 26px;
+    box-shadow: 0 1px 0 rgba(15, 23, 42, .03);
+}
+
+.zfl-section h1 { margin: 0 0 16px; font-size: 26px; color: #111827; }
+
+/* Botones base — cero especificidad, los estilos específicos siempre ganan */
+.zfl-section :where(button) {
+    padding: 9px 16px;
+    border: 0;
+    border-radius: 8px;
+    background: #000000;
+    color: #ffcc00;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color .15s ease, transform .1s ease;
+}
+
+.zfl-section :where(button:hover):not(.zfl-modal-close):not(.zfl-lightbox-close) {
+    background: #1f1f23;
+}
+
+.zfl-section :where(button:active) {
+    transform: scale(.98);
+}
+
+.zfl-btn-primary {
+    padding: 11px 22px;
+    background: #000000;
+    color: #ffcc00;
+    border: 0;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: inherit;
+    margin-top: 6px;
+    transition: background-color .15s ease, transform .1s ease;
+}
+
+.zfl-btn-primary:hover { background: #1f1f23; }
+.zfl-btn-primary:active { transform: scale(.98); }
+
+/* ─── Mensajes ─── */
+.zfl-error,
+.zfl-success {
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.zfl-error { background: #fff4e5; border: 1px solid #f5b400; color: #7a4a00; }
+.zfl-success { background: #ecfdf5; border: 1px solid #10b981; color: #065f46; }
+
+/* ─── Formularios genéricos ─── */
+.zfl-section input[type="text"],
+.zfl-section input[type="number"],
+.zfl-section input[type="email"],
+.zfl-section input[type="url"],
+.zfl-section input[type="password"],
+.zfl-section input[type="search"],
+.zfl-section input[type="date"],
+.zfl-section input[type="tel"],
+.zfl-section select,
+.zfl-section textarea {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    background: #fff;
+    color: #111827;
+    box-sizing: border-box;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.zfl-section input[type="text"]:focus,
+.zfl-section input[type="number"]:focus,
+.zfl-section input[type="email"]:focus,
+.zfl-section input[type="url"]:focus,
+.zfl-section input[type="password"]:focus,
+.zfl-section input[type="search"]:focus,
+.zfl-section input[type="date"]:focus,
+.zfl-section input[type="tel"]:focus,
+.zfl-section select:focus,
+.zfl-section textarea:focus {
+    outline: none;
+    border-color: #ffcc00;
+    box-shadow: 0 0 0 3px rgba(255, 204, 0, .25);
+}
+
+.zfl-section label {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.zfl-section label small {
+    display: block;
+    margin-top: 3px;
+    font-weight: 400;
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.zfl-section textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.zfl-section input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #ffcc00;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.zfl-section input[type="file"] {
+    font-size: 13px;
+}
+
+.zfl-tab-title {
+    margin: 0 0 14px;
+    font-size: 22px;
+    color: #111827;
+    font-weight: 700;
+}
+
+/* ─── Búsqueda ─── */
+.zfl-search { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+
+.zfl-search input,
+.zfl-search select {
+    padding: 9px 11px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+}
+
+.zfl-search input { flex: 1; min-width: 200px; }
+
+.zfl-search button {
+    padding: 9px 14px;
+    border: 0;
+    border-radius: 6px;
+    background: #000000;
+    color: #ffcc00;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color .15s ease;
+}
+
+.zfl-search button:hover { background: #1f1f23; }
+
+.zfl-meta { margin: 0 0 12px; color: #6b7280; font-size: 13px; }
+
+/* ─── Acciones masivas ─── */
+.zfl-bulk-bar { display: flex; gap: 8px; align-items: center; margin-bottom: 12px; flex-wrap: wrap; }
+
+.zfl-bulk-bar select {
+    padding: 9px 11px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+}
+
+.zfl-bulk-bar button {
+    padding: 9px 14px;
+    border: 0;
+    border-radius: 6px;
+    background: #000000;
+    color: #ffcc00;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color .15s ease;
+}
+
+.zfl-bulk-bar button:hover { background: #1f1f23; }
+
+/* ─── Tabla ─── */
+.zfl-card { border: 1px solid #e2e8f0; border-radius: 10px; overflow-x: auto; }
+
+.zfl-table { width: 100%; border-collapse: collapse; background: #fff; min-width: 800px; }
+
+.zfl-table th,
+.zfl-table td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.zfl-col-check { width: 40px; }
+
+.zfl-table thead th {
+    background: #000000;
+    color: #ffcc00;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+}
+
+.zfl-table tbody tr:last-child td { border-bottom: 0; }
+
+.zfl-product-row { transition: background-color .15s ease, box-shadow .15s ease; }
+.zfl-product-row:hover { background: #fffbeb; box-shadow: inset 4px 0 0 0 #ffcc00; }
+
+.zfl-row-actions { min-width: 140px; }
+
+/* ─── Miniatura clickable ─── */
+.zfl-thumb { width: 110px; }
+
+.zfl-thumb-button {
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    background: #fff;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    cursor: zoom-in;
+    transition: all .2s cubic-bezier(.4,0,.2,1);
+    overflow: hidden;
+    display: block;
+}
+
+.zfl-thumb-button:hover {
+    transform: scale(1.12);
+    box-shadow: 0 10px 32px rgba(0,0,0,.2);
+    border-color: #ffcc00;
+}
+
+.zfl-thumb-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    padding: 4px;
+}
+
+.zfl-thumb-empty {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    color: #94a3b8;
+    border: 2px dashed #d1d5db;
+    border-radius: 12px;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* ─── Lightbox ─── */
+.zfl-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.88);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 32px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+}
+
+.zfl-lightbox[hidden] { display: none; }
+
+.zfl-lightbox.zfl-lb-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.zfl-lightbox-img {
+    max-width: 85vw;
+    max-height: 78vh;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 24px 80px rgba(0,0,0,.5);
+}
+
+.zfl-lightbox-caption {
+    margin: 16px 0 0;
+    color: #ffcc00;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.zfl-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    background: rgba(255,255,255,.12);
+    backdrop-filter: blur(4px);
+    color: #ffcc00;
+    border: 0;
+    border-radius: 50%;
+    font-size: 26px;
+    cursor: pointer;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .15s ease;
+}
+
+.zfl-lightbox-close:hover { background: rgba(255,204,0,.2); }
+
+/* ─── Paginación ─── */
+.zfl-pagination { margin-top: 16px; display: flex; gap: 6px; flex-wrap: wrap; }
+
+.zfl-page {
+    padding: 6px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    color: #111827;
+    text-decoration: none;
+    font-size: 13px;
+    background: #fff;
+    transition: background-color .15s ease;
+}
+
+.zfl-page:hover { background: #fff7d6; }
+
+.zfl-page.active {
+    background: #000000;
+    color: #ffcc00;
+    border-color: #000000;
+    font-weight: 700;
+}
+
+/* ─── Botón editar (abre modal) ─── */
+.zfl-edit-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    background: #fff;
+    color: #000;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .15s ease;
+}
+
+.zfl-edit-trigger:hover {
+    background: #000;
+    color: #ffcc00;
+}
+
+.zfl-delete-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 10px;
+    border: 1px solid #b91c1c;
+    border-radius: 6px;
+    background: #fff;
+    color: #b91c1c;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .15s ease;
+}
+
+.zfl-delete-trigger:hover {
+    background: #b91c1c;
+    color: #fff;
+}
+
+.zfl-row-btns {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+/* ─── Modal de edición ─── */
+.zfl-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.6);
+    z-index: 9998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+}
+
+.zfl-modal-overlay.zfl-modal-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.zfl-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.96);
+    width: 520px;
+    max-width: 94vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 32px 100px rgba(0,0,0,.25);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .25s cubic-bezier(.4,0,.2,1);
+}
+
+.zfl-modal.zfl-modal-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.zfl-modal[hidden] { display: none; }
+
+.zfl-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    border-bottom: 1px solid #e5e7eb;
+    background: #f8fafc;
+    border-radius: 16px 16px 0 0;
+}
+
+.zfl-modal-header h2 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.zfl-modal-close {
+    width: 32px;
+    height: 32px;
+    border: 0;
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .15s ease;
+}
+
+.zfl-modal-close:hover { background: #e5e7eb; }
+
+.zfl-modal-body { padding: 24px; }
+
+.zfl-modal-img-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background: #f8fafc;
+    border: 2px dashed #d1d5db;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: border-color .15s ease;
+}
+
+.zfl-modal-img-section:hover { border-color: #ffcc00; }
+
+.zfl-modal-img-preview {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 6px;
+}
+
+.zfl-modal-img-placeholder {
+    width: 160px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e5e7eb;
+    border-radius: 10px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.zfl-modal-img-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.zfl-modal-img-upload {
+    position: relative;
+    padding: 7px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: #fff;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color .15s ease;
+}
+
+.zfl-modal-img-upload:hover { border-color: #ffcc00; }
+
+.zfl-modal-img-upload input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.zfl-modal-img-remove {
+    padding: 7px 14px;
+    border: 1px solid #b91c1c;
+    border-radius: 6px;
+    background: #fff;
+    color: #b91c1c;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .15s ease;
+}
+
+.zfl-modal-img-remove:hover { background: #b91c1c; color: #fff; }
+
+.zfl-modal-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; }
+
+.zfl-modal-fields label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #374151;
+}
+
+.zfl-modal-fields label.zfl-full { grid-column: span 2; }
+
+.zfl-modal-fields input,
+.zfl-modal-fields select {
+    padding: 9px 11px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fff;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.zfl-modal-fields input:focus,
+.zfl-modal-fields select:focus {
+    outline: none;
+    border-color: #ffcc00;
+    box-shadow: 0 0 0 3px rgba(255,204,0,.2);
+}
+
+.zfl-modal-fields select[multiple] {
+    height: auto;
+    padding: 6px;
+}
+
+.zfl-modal-footer {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    padding: 16px 24px;
+    border-top: 1px solid #e5e7eb;
+    background: #f8fafc;
+    border-radius: 0 0 16px 16px;
+}
+
+.zfl-modal-save {
+    padding: 9px 20px;
+    border: 0;
+    border-radius: 8px;
+    background: #000;
+    color: #ffcc00;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background .15s ease, transform .1s ease;
+}
+
+.zfl-modal-save:hover { background: #1f1f23; transform: translateY(-1px); }
+.zfl-modal-save:disabled { opacity: .5; cursor: not-allowed; }
+
+.zfl-modal-cancel {
+    padding: 9px 20px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #fff;
+    color: #374151;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background .15s ease;
+}
+
+.zfl-modal-cancel:hover { background: #f3f4f6; }
+
+/* ─── Nuevo producto ─── */
+.zfl-new { margin-top: 24px; background: #fff7d6; border-radius: 10px; padding: 14px 16px; border: 1px dashed #f5b400; }
+
+.zfl-new summary {
+    cursor: pointer;
+    font-weight: 800;
+    color: #000000;
+    font-size: 15px;
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.zfl-new summary::-webkit-details-marker { display: none; }
+
+.zfl-new summary::before { content: '+'; font-size: 17px; font-weight: 700; color: #000000; }
+
+.zfl-new-form { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+
+.zfl-new-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    color: #374151;
+    font-weight: 700;
+}
+
+.zfl-new-form input,
+.zfl-new-form select {
+    margin-top: 4px;
+    padding: 8px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.zfl-new-form select[multiple] { padding: 4px; }
+
+.zfl-new-form button {
+    grid-column: span 2;
+    margin-top: 6px;
+    padding: 9px 14px;
+    border: 0;
+    border-radius: 6px;
+    background: #000000;
+    color: #ffcc00;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* ================================================
+   ZELLE
+   ================================================ */
+
+.zfl-zelle-empty {
+    text-align: center;
+    padding: 32px 16px;
+    color: #6b7280;
+}
+
+.zfl-zelle-empty p { margin: 4px 0; }
+.zfl-zelle-empty p:first-child { font-size: 16px; font-weight: 700; color: #374151; }
+
+.zfl-zelle-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.zfl-zelle-card {
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color .15s ease;
+}
+
+.zfl-zelle-card.zfl-zelle-active {
+    border-color: #ffcc00;
+    background: #fffdf5;
+}
+
+.zfl-zelle-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e5e7eb;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.zfl-zelle-badge {
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: .04em;
+}
+
+.zfl-zelle-active .zfl-zelle-badge {
+    background: #000;
+    color: #ffcc00;
+}
+
+.zfl-zelle-card:not(.zfl-zelle-active) .zfl-zelle-badge {
+    background: #e5e7eb;
+    color: #6b7280;
+}
+
+.zfl-zelle-card-actions {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.zfl-zelle-activate-btn,
+.zfl-zelle-edit-btn,
+.zfl-zelle-delete-btn {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid transparent;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.zfl-zelle-activate-btn {
+    background: #000;
+    color: #ffcc00;
+    border-color: #000;
+}
+
+.zfl-zelle-activate-btn:hover { background: #1f1f23; }
+
+.zfl-zelle-edit-btn {
+    background: #fff;
+    color: #374151;
+    border-color: #d1d5db;
+}
+
+.zfl-zelle-edit-btn:hover { background: #f3f4f6; }
+
+.zfl-zelle-delete-btn {
+    background: #fff;
+    color: #b91c1c;
+    border-color: #b91c1c;
+}
+
+.zfl-zelle-delete-btn:hover { background: #b91c1c; color: #fff; }
+
+.zfl-zelle-card-body {
+    padding: 14px;
+}
+
+.zfl-zelle-card-body h3 {
+    margin: 0 0 10px;
+    font-size: 17px;
+    color: #111827;
+}
+
+.zfl-zelle-field {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.zfl-zelle-field-label {
+    font-weight: 700;
+    color: #6b7280;
+    font-size: 12px;
+    min-width: 60px;
+}
+
+.zfl-zelle-field-value {
+    color: #111827;
+    word-break: break-all;
+}
+
+.zfl-zelle-note {
+    color: #6b7280;
+    font-style: italic;
+}
+
+/* Formulario Zelle */
+.zfl-zelle-form-wrap {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.zfl-zelle-form-wrap h2 {
+    margin: 0 0 14px;
+    font-size: 17px;
+    color: #111827;
+}
+
+.zfl-zelle-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 14px;
+}
+
+.zfl-zelle-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #374151;
+}
+
+.zfl-zelle-form label.zfl-zelle-active-check {
+    grid-column: span 2;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.zfl-zelle-form input[type="text"],
+.zfl-zelle-form textarea {
+    padding: 9px 11px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fff;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.zfl-zelle-form input[type="text"]:focus,
+.zfl-zelle-form textarea:focus {
+    outline: none;
+    border-color: #ffcc00;
+    box-shadow: 0 0 0 3px rgba(255,204,0,.2);
+}
+
+.zfl-zelle-form textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.zfl-zelle-form-btns {
+    grid-column: span 2;
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.zfl-btn-cancel {
+    padding: 9px 18px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #fff;
+    color: #374151;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.zfl-btn-cancel:hover { background: #f3f4f6; }
+
+/* Nueva cuenta */
+.zfl-zelle-new {
+    background: #fff7d6;
+    border-radius: 10px;
+    padding: 14px 16px;
+    border: 1px dashed #f5b400;
+}
+
+.zfl-zelle-new summary {
+    cursor: pointer;
+    font-weight: 800;
+    color: #000;
+    font-size: 15px;
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.zfl-zelle-new summary::-webkit-details-marker { display: none; }
+.zfl-zelle-new summary::before { content: '+'; font-size: 17px; font-weight: 700; color: #000; }
+
+/* ================================================
+   CATÁLOGO (tabs, categorías, localidades)
+   ================================================ */
+
+.zfl-subnav {
+    display: flex;
+    gap: 8px;
+    margin: 0 0 22px;
+    flex-wrap: wrap;
+}
+
+.zfl-subnav-link {
+    padding: 8px 18px;
+    border-radius: 8px;
+    background: #f1f5f9;
+    color: #334155;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    border: 1px solid #e2e8f0;
+    transition: background .15s ease, color .15s ease;
+}
+
+.zfl-subnav-link:hover { background: #e2e8f0; }
+
+.zfl-subnav-link.active {
+    background: #000;
+    color: #ffcc00;
+    border-color: #000;
+}
+
+.zfl-tab-title {
+    margin: 0 0 14px;
+    font-size: 20px;
+    color: #111827;
+}
+
+.zfl-divider {
+    height: 1px;
+    background: #e5e7eb;
+    margin: 28px 0;
+}
+
+.zfl-cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.zfl-cat-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 10px;
+    background: #fff;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.zfl-cat-card:hover {
+    border-color: #ffcc00;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.zfl-cat-thumb {
+    width: 52px;
+    height: 52px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    flex-shrink: 0;
+    padding: 0;
+    cursor: zoom-in;
+    display: block;
+}
+
+.zfl-cat-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.zfl-cat-thumb.zfl-thumb-empty {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    border: 2px dashed #d1d5db;
+    border-radius: 8px;
+    cursor: default;
+}
+
+.zfl-cat-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.zfl-cat-name {
+    display: block;
+    font-weight: 700;
+    font-size: 14px;
+    color: #111827;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.zfl-cat-count {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.zfl-cat-btns {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.zfl-loc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.zfl-loc-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 10px 14px;
+    background: #fff;
+    flex-wrap: wrap;
+    transition: border-color .15s ease;
+}
+
+.zfl-loc-row:hover { border-color: #ffcc00; }
+
+.zfl-loc-name {
+    font-weight: 700;
+    font-size: 15px;
+    color: #111827;
+}
+
+.zfl-loc-note {
+    color: #6b7280;
+    font-size: 13px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.zfl-loc-count {
+    font-size: 12px;
+    color: #6b7280;
+    background: #f1f5f9;
+    padding: 2px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+}
+
+.zfl-mcard-loc {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* ================================================
+   PEDIDOS
+   ================================================ */
+
+.zfl-tab-count {
+    display: inline-grid;
+    place-items: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    margin-left: 6px;
+    border-radius: 9px;
+    background: #e2e8f0;
+    color: #334155;
+    font-size: 11px;
+}
+
+.zfl-subnav-link.active .zfl-tab-count {
+    background: #ffcc00;
+    color: #000000;
+}
+
+.zfl-orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.zfl-orders-empty {
+    text-align: center;
+    color: #6b7280;
+    padding: 28px 16px;
+    border: 1px dashed #d1d5db;
+    border-radius: 12px;
+}
+
+.zfl-order-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.zfl-order-urgent {
+    border-left: 4px solid #f59e0b;
+}
+
+.zfl-order-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 14px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e5e7eb;
+    flex-wrap: wrap;
+}
+
+.zfl-order-num {
+    font-weight: 900;
+    font-size: 16px;
+    color: #111827;
+    margin-right: 8px;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: #9ca3af;
+    text-underline-offset: 4px;
+    cursor: pointer;
+}
+
+.zfl-order-num:hover {
+    color: #000000;
+    text-decoration-color: #ffcc00;
+}
+
+.zfl-order-date {
+    color: #6b7280;
+    font-size: 12.5px;
+}
+
+.zfl-order-status {
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+.zfl-ost-on-hold, .zfl-ost-pending { background: #fff7d6; color: #7a4a00; }
+.zfl-ost-processing, .zfl-ost-ready { background: #dbeafe; color: #1e3a8a; }
+.zfl-ost-completed { background: #dcfce7; color: #14532d; }
+.zfl-ost-cancelled, .zfl-ost-failed { background: #fee2e2; color: #7f1d1d; }
+
+.zfl-oph-1 { background: #fff7d6; color: #7a4a00; }
+.zfl-oph-2 { background: #dbeafe; color: #1e3a8a; }
+.zfl-oph-3 { background: #e0e7ff; color: #3730a3; }
+.zfl-oph-4 { background: #dcfce7; color: #14532d; }
+
+.zfl-order-photo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.zfl-order-file {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #374151;
+}
+
+.zfl-order-file input {
+    font-size: 12px;
+    max-width: 100%;
+}
+
+.zfl-order-body {
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.zfl-order-row {
+    display: flex;
+    gap: 8px;
+    font-size: 13.5px;
+    color: #111827;
+}
+
+.zfl-order-label {
+    color: #6b7280;
+    font-weight: 700;
+    min-width: 58px;
+    flex-shrink: 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    padding-top: 2px;
+}
+
+.zfl-order-total .zfl-order-label + span {
+    font-weight: 900;
+    font-size: 16px;
+}
+
+.zfl-order-actions {
+    display: flex;
+    gap: 8px;
+    padding: 0 14px 14px;
+    flex-wrap: wrap;
+}
+
+.zfl-order-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 14px;
+    border-radius: 8px;
+    border: 1px solid #111827;
+    background: #fff;
+    color: #111827;
+    font-weight: 800;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background .15s ease, color .15s ease;
+}
+
+.zfl-order-btn:hover { background: #f3f4f6; }
+
+.zfl-order-btn-primary {
+    background: #000000;
+    color: #ffcc00;
+    border-color: #000000;
+}
+
+.zfl-order-btn-primary:hover { background: #1f1f23; }
+
+.zfl-order-cancel {
+    background: #ffffff;
+    color: #b91c1c;
+    border-color: #b91c1c;
+}
+
+.zfl-order-cancel:hover { background: #b91c1c; color: #ffffff; }
+
+/* ─── Vista de detalle de pedido ─── */
+.zfl-detail-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 6px 0 16px;
+}
+
+.zfl-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.zfl-detail-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+}
+
+.zfl-detail-card h3 {
+    margin: 0 0 10px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: #6b7280;
+}
+
+.zfl-detail-card .zfl-order-btn { margin-top: 10px; }
+
+.zfl-phases {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.zfl-phases li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #f8fafc;
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+.zfl-phases li.current {
+    border-color: #ffcc00;
+    background: #fffbe6;
+    color: #111827;
+    font-weight: 700;
+}
+
+.zfl-phases li.done {
+    border-color: #16a34a;
+    background: #f0fdf4;
+    color: #14532d;
+}
+
+.zfl-phase-dot {
+    display: inline-grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 900;
+    flex-shrink: 0;
+}
+
+.zfl-phases li.done .zfl-phase-dot {
+    background: #16a34a;
+    color: #ffffff;
+}
+
+.zfl-phases li.current .zfl-phase-dot {
+    background: #ffcc00;
+    color: #000000;
+}
+
+.zfl-detail-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.zfl-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #f8fafc;
+    font-size: 13.5px;
+}
+
+.zfl-detail-item img,
+.zfl-detail-item-noimg {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    object-fit: contain;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    flex-shrink: 0;
+}
+
+.zfl-detail-item-noimg {
+    display: inline-grid;
+    place-items: center;
+    color: #9ca3af;
+}
+
+.zfl-detail-item-name {
+    flex: 1;
+    min-width: 0;
+    color: #111827;
+}
+
+.zfl-detail-item-name small { color: #6b7280; }
+
+.zfl-detail-receipt {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.zfl-detail-receipt-thumb {
+    width: 84px;
+    height: 84px;
+    padding: 0;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: zoom-in;
+    background: #fff;
+    transition: border-color .15s ease;
+}
+
+.zfl-detail-receipt-thumb:hover { border-color: #ffcc00; }
+
+.zfl-detail-receipt-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Detalle en móvil: una columna */
+@media (max-width: 768px) {
+    .zfl-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .zfl-detail-head .zfl-order-num {
+        font-size: 18px;
+    }
+}
+
+/* ─── Resumen (Dashboard) ─── */
+.zfl-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.zfl-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.zfl-stat-num {
+    font-size: 24px;
+    font-weight: 900;
+    color: #111827;
+    line-height: 1.2;
+}
+
+.zfl-stat-label {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: #6b7280;
+}
+
+.zfl-stat-sub {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.zfl-stat-link {
+    border-color: #ffcc00;
+    background: #fffdf5;
+}
+
+.zfl-stat-link:hover { background: #fffbe6; }
+
+.zfl-stat-alert .zfl-stat-num { color: #b45309; }
+
+.zfl-dash-h2 {
+    margin: 26px 0 12px;
+    font-size: 17px;
+    color: #111827;
+}
+
+.zfl-dash-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 4px;
+    width: 100%;
+}
+
+.zfl-tile-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.zfl-tile-grid li {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px;
+    background: #f8fafc;
+}
+
+.zfl-tile-grid li a { text-decoration: none; display: block; }
+
+.zfl-tile-grid li a:hover strong { color: #000000; }
+
+.zfl-tile-grid strong { display: block; margin-bottom: 6px; color: #0f172a; }
+
+.zfl-tile-grid span { color: #475569; font-size: 14px; line-height: 1.4; }
+
+/* ─── Barras (Finanzas / Visitas) ─── */
+.zfl-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.zfl-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.zfl-bar-date {
+    min-width: 90px;
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: #374151;
+    text-transform: capitalize;
+}
+
+.zfl-bar-track {
+    flex: 1;
+    min-width: 0;
+    height: 14px;
+    border-radius: 7px;
+    background: #f1f5f9;
+    overflow: hidden;
+}
+
+.zfl-bar-fill {
+    height: 100%;
+    border-radius: 7px;
+    background: linear-gradient(90deg, #ffcc00, #f59e0b);
+    min-width: 4px;
+}
+
+.zfl-bar-nums {
+    flex-shrink: 0;
+    min-width: 140px;
+    text-align: right;
+    font-size: 12.5px;
+    color: #6b7280;
+}
+
+.zfl-bar-nums b { color: #111827; }
+
+@media (max-width: 768px) {
+    .zfl-bar-row { flex-wrap: wrap; gap: 6px; }
+    .zfl-bar-date { min-width: 0; width: 100%; }
+    .zfl-bar-track { flex-basis: 100%; order: 2; }
+    .zfl-bar-nums { text-align: left; order: 3; width: 100%; min-width: 0; }
+}
+
+/* Preview de imágenes en formularios */
+.zfl-file-preview {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    margin-top: 6px;
+    display: block;
+}
+
+.zfl-order-photo-form .zfl-file-preview {
+    margin-top: 0;
+}
+
+/* Botón de notificaciones (topbar) */
+.zfl-push-btn {
+    padding: 7px 12px;
+    border: 2px solid #ffcc00;
+    border-radius: 8px;
+    background: transparent;
+    color: #ffcc00;
+    font-weight: 800;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background .15s ease;
+    white-space: nowrap;
+}
+
+.zfl-push-btn:hover { background: rgba(255, 204, 0, .15); }
+
+/* ─── Header desktop: retoque estético ─── */
+@media (min-width: 769px) {
+
+    .zfl-topbar-inner {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 26px;
+        padding: 15px 30px;
+    }
+
+    .zfl-brand-logo { height: 42px; }
+
+    .zfl-loc-switch { margin-left: 6px; }
+
+    .zfl-push-btn {
+        border-width: 2px;
+        border-radius: 9px;
+        padding: 8px 16px;
+    }
+
+    /* El menú se pega a la derecha, con espacio uniforme */
+    .zfl-topnav {
+        margin-left: auto;
+        gap: 4px;
+        align-items: center;
+    }
+
+    .zfl-topnav a {
+        font-size: 14px;
+        font-weight: 600;
+        padding: 9px 14px;
+        border-radius: 8px;
+        border: 1px solid transparent;
+    }
+
+    .zfl-topnav a:hover {
+        background: rgba(255, 204, 0, .12);
+        color: #ffcc00;
+        border-color: transparent;
+    }
+
+    /* Salir destacado como botón amarillo */
+    .zfl-topnav a.zfl-logout {
+        color: #ffcc00;
+        border: 1px solid rgba(255, 204, 0, .45);
+        margin-left: 6px;
+    }
+
+    .zfl-topnav a.zfl-logout:hover {
+        background: #ffcc00;
+        color: #000000;
+        border-color: #ffcc00;
+    }
+}
+
+/* ================================================
+   CARDS MÓVILES — ocultas en desktop
+   ================================================ */
+
+.zfl-mobile-cards { display: none; }
+
+/* ================================================
+   RESPONSIVE — Mobile First
+   ================================================ */
+
+@media (max-width: 768px) {
+
+    .zfl-topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 14px;
+        gap: 10px;
+    }
+
+    .zfl-topnav {
+        gap: 6px;
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .zfl-topnav a {
+        white-space: nowrap;
+        font-size: 13px;
+        padding: 5px 8px;
+    }
+
+    .zfl-loc-switch {
+        width: 100%;
+    }
+
+    .zfl-loc-switch select {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .zfl-main {
+        padding: 14px 10px 40px;
+    }
+
+    .zfl-section {
+        padding: 14px;
+        border-radius: 10px;
+    }
+
+    .zfl-section h1 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .zfl-search {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .zfl-search input {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .zfl-search select {
+        width: 100%;
+    }
+
+    .zfl-search button {
+        width: 100%;
+    }
+
+    .zfl-bulk-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+    }
+
+    .zfl-bulk-bar select {
+        width: 100%;
+    }
+
+    .zfl-bulk-bar button {
+        width: 100%;
+    }
+
+    /* Ocultar tabla, mostrar cards */
+    .zfl-card { display: none; }
+
+    .zfl-mobile-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .zfl-empty-msg {
+        text-align: center;
+        color: #6b7280;
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    .zfl-mcard {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: box-shadow .15s ease;
+    }
+
+    .zfl-mcard:active {
+        box-shadow: 0 0 0 2px #ffcc00;
+    }
+
+    .zfl-mcard-top {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .zfl-mcard-check {
+        flex-shrink: 0;
+    }
+
+    .zfl-mcard-img {
+        flex-shrink: 0;
+        width: 72px;
+        height: 72px;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #f8fafc;
+        border: 1px solid #e5e7eb;
+    }
+
+    .zfl-mcard-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        padding: 2px;
+    }
+
+    .zfl-mcard-img.zfl-thumb-empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        color: #94a3b8;
+        border: 2px dashed #d1d5db;
+    }
+
+    .zfl-mcard-info {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .zfl-mcard-name {
+        font-weight: 700;
+        font-size: 14px;
+        color: #111827;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .zfl-mcard-price {
+        font-size: 15px;
+        font-weight: 800;
+        color: #000;
+    }
+
+    .zfl-mcard-status {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 20px;
+        width: fit-content;
+    }
+
+    .zfl-status-publish {
+        background: #ecfdf5;
+        color: #065f46;
+    }
+
+    .zfl-status-draft {
+        background: #f3f4f6;
+        color: #374151;
+    }
+
+    .zfl-status-pending {
+        background: #fff7d6;
+        color: #7a4a00;
+    }
+
+    .zfl-mcard-btns {
+        display: flex;
+        gap: 8px;
+        padding: 0 12px 12px;
+    }
+
+    .zfl-mcard-btns .zfl-edit-trigger,
+    .zfl-mcard-btns .zfl-delete-trigger {
+        flex: 1;
+        justify-content: center;
+        padding: 10px;
+        font-size: 13px;
+        border-radius: 8px;
+    }
+
+    /* Modal mobile */
+    .zfl-modal {
+        width: 100vw;
+        max-width: 100vw;
+        height: 100vh;
+        max-height: 100vh;
+        top: 0;
+        left: 0;
+        transform: translateY(100%);
+        border-radius: 0;
+    }
+
+    .zfl-modal.zfl-modal-visible {
+        transform: translateY(0);
+    }
+
+    .zfl-modal-header {
+        padding: 14px 16px;
+        border-radius: 0;
+    }
+
+    .zfl-modal-header h2 {
+        font-size: 15px;
+    }
+
+    .zfl-modal-body {
+        padding: 16px;
+    }
+
+    .zfl-modal-img-preview,
+    .zfl-modal-img-placeholder {
+        width: 120px;
+        height: 120px;
+    }
+
+    .zfl-modal-fields {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .zfl-modal-fields label.zfl-full {
+        grid-column: span 1;
+    }
+
+    .zfl-modal-footer {
+        padding: 12px 16px;
+        border-radius: 0;
+        flex-direction: column-reverse;
+        gap: 8px;
+    }
+
+    .zfl-modal-save,
+    .zfl-modal-cancel {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* Nuevo producto mobile */
+    .zfl-new {
+        padding: 12px;
+    }
+
+    .zfl-new-form {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .zfl-new-form button {
+        grid-column: span 1;
+    }
+
+    /* Paginación mobile */
+    .zfl-pagination {
+        justify-content: center;
+    }
+
+    .zfl-page {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    /* Lightbox mobile */
+    .zfl-lightbox {
+        padding: 12px;
+    }
+
+    .zfl-lightbox-img {
+        max-width: 95vw;
+        max-height: 70vh;
+        border-radius: 8px;
+    }
+
+    .zfl-lightbox-close {
+        top: 10px;
+        right: 10px;
+        width: 38px;
+        height: 38px;
+        font-size: 22px;
+    }
+
+    .zfl-lightbox-caption {
+        font-size: 13px;
+        margin-top: 10px;
+    }
+
+    .zfl-meta {
+        font-size: 12px;
+    }
+
+    /* Zelle mobile */
+    .zfl-zelle-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .zfl-zelle-card-actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .zfl-zelle-activate-btn,
+    .zfl-zelle-edit-btn,
+    .zfl-zelle-delete-btn {
+        flex: 1;
+        justify-content: center;
+        min-width: 0;
+    }
+
+    .zfl-zelle-form {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .zfl-zelle-form label.zfl-zelle-active-check {
+        grid-column: span 1;
+    }
+
+    .zfl-zelle-form-btns {
+        grid-column: span 1;
+        flex-direction: column;
+    }
+
+    .zfl-zelle-field {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    /* Catálogo mobile */
+    .zfl-subnav {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 4px;
+    }
+
+    .zfl-subnav-link {
+        white-space: nowrap;
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .zfl-cat-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .zfl-loc-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .zfl-loc-note {
+        min-width: 0;
+    }
+
+    /* Pedidos mobile */
+    .zfl-order-label {
+        min-width: 0;
+    }
+
+    .zfl-order-row {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .zfl-order-btn {
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .zfl-push-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ─── Reviews (panel) ─── */
+.zfl-review-row {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 10px;
+    background: #f8fafc;
+}
+
+.zfl-review-fields { display: flex; flex-direction: column; gap: 8px; }
+
+.zfl-review-meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.zfl-review-meta label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #374151;
+}
+
+.zfl-review-meta input, .zfl-review-meta select {
+    padding: 6px 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.zfl-review-del {
+    color: #b91c1c !important;
+}
+
+.zfl-review-active {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+}
+
+.zfl-phones-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.zfl-phone-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 10px;
+    align-items: end;
+    padding: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #f8fafc;
+}
+
+.zfl-phone-row label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #374151;
+}
+
+.zfl-phone-row input {
+    padding: 8px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.zfl-phone-del {
+    color: #b91c1c !important;
+}
+
+.zfl-phone-new {
+    border-color: #ffcc00;
+    background: #fffdf5;
+}
+
+.zfl-currencies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.zfl-currency-card {
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.zfl-currency-card:hover { border-color: #ffcc00; }
+
+.zfl-currency-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.zfl-currency-head b { font-size: 18px; color: #111827; }
+
+.zfl-currency-rate {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.zfl-currency-rate input {
+    padding: 8px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.zfl-bar-fill { background: linear-gradient(90deg, #ffcc00, #f59e0b); }
+
+/* ─── Pago del cliente (moneda elegida) ─── */
+.zfl-pay-card {
+    border-left: 4px solid #ffcc00;
+    background: #fffdf5;
+}
+
+.zfl-pay-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.zfl-pay-badge {
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #fff;
+    background: #1976d2;
+}
+
+.zfl-pay-badge-paypal { background: #0070ba; }
+.zfl-pay-badge-zelle { background: #7b1fa2; }
+
+.zfl-pay-cur {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    background: #111827;
+    color: #ffcc00;
+}
+
+.zfl-order-total-cur {
+    color: #7b1fa2;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+/* ─── Reseñas gestión ─── */
+.zfl-section-subtitle {
+    margin: 24px 0 10px;
+    font-size: 16px;
+    color: #374151;
+    font-weight: 700;
+}
+
+.zfl-reviews-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.zfl-review-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+
+.zfl-review-pending {
+    border-left: 4px solid #f59e0b;
+    background: #fffdf5;
+}
+
+.zfl-review-active {
+    border-left: 4px solid #10b981;
+}
+
+.zfl-review-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+}
+
+.zfl-review-stars { font-size: 16px; letter-spacing: 1px; }
+.zfl-star-full { color: #f59e0b; }
+.zfl-star-half {
+    background: linear-gradient(90deg, #f59e0b 50%, #e5e7eb 50%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.zfl-star-empty { color: #e5e7eb; }
+.zfl-review-author { font-weight: 700; color: #111827; }
+.zfl-review-from { color: #6b7280; font-size: 13px; }
+
+.zfl-review-text {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.5;
+}
+
+.zfl-review-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.zfl-btn-sm {
+    padding: 5px 12px !important;
+    border: 0;
+    border-radius: 6px;
+    font-size: 12px !important;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.zfl-btn-approve { background: #10b981 !important; color: #fff !important; }
+.zfl-btn-approve:hover { background: #059669 !important; }
+
+.zfl-btn-warn { background: #f59e0b !important; color: #fff !important; }
+.zfl-btn-warn:hover { background: #d97706 !important; }
+
+.zfl-btn-delete { background: #ef4444 !important; color: #fff !important; }
+.zfl-btn-delete:hover { background: #dc2626 !important; }
+
+.zfl-empty {
+    text-align: center;
+    padding: 32px 16px;
+    color: #6b7280;
+    font-size: 14px;
+    background: #f9fafb;
+    border-radius: 10px;
+    border: 1px dashed #d1d5db;
+}

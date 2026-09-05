@@ -1,0 +1,671 @@
+/* ================================================
+   HEADER TIENDA FLORIDAME — blanco con acentos amarillos
+   ================================================ */
+
+.zsl-header {
+    position: sticky;
+    top: 0;
+    z-index: 9990;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    border-bottom: 2px solid #ffcc00;
+    box-shadow: 0 1px 4px rgba(15, 23, 42, .07);
+    padding: 10px 16px;
+    padding-top: calc(10px + env(safe-area-inset-top, 0px));
+    transition: transform .25s ease;
+}
+
+.zsl-header.zsl-header-hidden {
+    transform: translateY(-110%);
+}
+
+body.admin-bar .zsl-header { top: 32px; }
+
+@media screen and (max-width: 782px) {
+    body.admin-bar .zsl-header { top: 46px; }
+}
+
+/* Ocultar el header de Electro */
+.zfl-store-active .top-bar,
+.zfl-store-active #masthead {
+    display: none !important;
+}
+
+/* Ocultar el footer de Electro */
+.zfl-store-active #colophon,
+.zfl-store-active .handheld-footer,
+.zfl-store-active .handheld-footer-bar {
+    display: none !important;
+}
+
+/* Ocultar secciones de demo de Electro (marcas, etc.) */
+.zfl-store-active .brands-carousel,
+.zfl-store-active .electro-attributes {
+    display: none !important;
+}
+
+/* ================================================
+   FOOTER TIENDA — oscuro con acentos amarillos
+   ================================================ */
+
+.zsl-footer {
+    margin-top: 48px;
+    background: #0f1115;
+    color: #d1d5db;
+}
+
+.zsl-footer-inner {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 36px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 44px 16px 0;
+}
+
+.zsl-footer-brand img {
+    max-height: 42px;
+    width: auto;
+    max-width: 170px;
+    object-fit: contain;
+}
+
+.zsl-footer-brand > span {
+    color: #ffcc00;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.zsl-footer-tag {
+    margin: 12px 0 0;
+    color: #9ca3af;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.zsl-footer-col h4 {
+    margin: 4px 0 14px;
+    color: #ffcc00;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.zsl-footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.zsl-footer-links a {
+    color: #d1d5db;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color .15s ease;
+}
+
+.zsl-footer-links a:hover { color: #ffcc00; }
+
+.zsl-locs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.zsl-loc-pill {
+    padding: 5px 13px;
+    border: 1px solid #374151;
+    border-radius: 20px;
+    color: #d1d5db;
+    font-size: 13px;
+}
+
+.zsl-footer-bottom {
+    margin-top: 36px;
+    padding: 16px;
+    border-top: 1px solid #1f2937;
+    color: #9ca3af;
+    font-size: 13px;
+    text-align: center;
+}
+
+.zsl-footer-bottom strong { color: #ffcc00; }
+
+@media (max-width: 768px) {
+    .zsl-footer-inner {
+        grid-template-columns: 1fr;
+        gap: 26px;
+        padding: 32px 14px 0;
+    }
+
+    .zsl-footer { margin-top: 32px; }
+}
+
+/* Logo */
+.zsl-logo {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    min-width: 0;
+}
+
+.zsl-logo img {
+    max-height: 42px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+}
+
+.zsl-logo span {
+    color: #111827;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: .02em;
+}
+
+/* Chip de localidad (estilo Amazon) */
+.zsl-loc-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 11px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    color: #111827;
+    cursor: pointer;
+    text-align: left;
+    flex-shrink: 0;
+    font-family: inherit;
+    transition: border-color .15s ease, background .15s ease;
+}
+
+.zsl-loc-chip:hover {
+    border-color: #ffcc00;
+    background: #fffbe6;
+}
+
+.zsl-loc-chip svg { color: #111827; flex-shrink: 0; }
+
+.zsl-loc-texts {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.zsl-loc-hello {
+    font-size: 10px;
+    color: #6b7280;
+}
+
+.zsl-loc-name {
+    font-size: 13px;
+    font-weight: 800;
+    color: #111827;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Búsqueda */
+.zsl-search {
+    flex: 1;
+    display: flex;
+    gap: 0;
+    min-width: 140px;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.zsl-search input[type="search"] {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #d1d5db;
+    border-right: 0;
+    border-radius: 10px 0 0 10px;
+    font-size: 15px;
+    background: #f9fafb;
+    color: #111827;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.zsl-search input[type="search"]:focus {
+    background: #ffffff;
+    border-color: #ffcc00;
+    box-shadow: 0 0 0 3px rgba(255, 204, 0, .22);
+}
+
+.zsl-search button {
+    padding: 0 16px;
+    border: 0;
+    border-radius: 0 10px 10px 0;
+    background: #ffcc00;
+    color: #000000;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .15s ease;
+}
+
+.zsl-search button:hover { background: #e6b800; }
+
+/* Acciones */
+.zsl-actions {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.zsl-search + .zsl-actions { margin-left: 0; }
+
+.zsl-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    color: #111827;
+    text-decoration: none;
+    position: relative;
+    transition: border-color .15s ease, background .15s ease;
+}
+
+.zsl-action:hover {
+    border-color: #ffcc00;
+    background: #fffbe6;
+}
+
+.zsl-action svg { color: #111827; }
+
+.zsl-action-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.zsl-cart-count {
+    display: inline-grid;
+    place-items: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    border-radius: 10px;
+    background: #ffcc00;
+    color: #000000;
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.zsl-no-scroll { overflow: hidden; }
+
+/* Dark mode toggle */
+.zsl-dark-toggle { cursor: pointer; }
+.zsl-dark-toggle .zsl-icon-moon { display: none !important; }
+.zsl-dark-toggle .zsl-icon-sun { display: inline-block !important; }
+html.dark-mode .zsl-dark-toggle .zsl-icon-moon { display: inline-block !important; }
+html.dark-mode .zsl-dark-toggle .zsl-icon-sun { display: none !important; }
+
+/* Pop-up obligatorio de localidad */
+.zsl-loc-modal.zsl-loc-mandatory {
+    z-index: 99999;
+}
+
+.zsl-loc-modal.zsl-loc-mandatory .zsl-loc-close {
+    display: none !important;
+}
+
+.zsl-loc-modal.zsl-loc-mandatory .zsl-loc-overlay {
+    pointer-events: none !important;
+    cursor: not-allowed;
+}
+
+.zsl-currency-select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 7px 28px 7px 10px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23111827' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 8px center;
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #111827;
+    cursor: pointer;
+    outline: none;
+    width: auto;
+    min-width: 0;
+}
+
+.zsl-currency-select:focus {
+    border-color: #ffcc00;
+    box-shadow: 0 0 0 3px rgba(255, 204, 0, .2);
+}
+
+@media (max-width: 768px) {
+    .zsl-currency-select {
+        padding: 6px 24px 6px 8px;
+        font-size: 12px;
+    }
+}
+
+.zsl-currency-select:focus {
+    border-color: #ffcc00;
+    box-shadow: 0 0 0 3px rgba(255, 204, 0, .2);
+}
+
+/* Modal de instalación */
+.zsl-imodal {
+    position: fixed;
+    inset: 0;
+    z-index: 99992;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: rgba(15, 23, 42, .55);
+}
+
+.zsl-imodal[hidden] { display: none; }
+
+.zsl-imodal-box {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    max-height: 85vh;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 16px 16px 0 0;
+    padding: 20px;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.zsl-imodal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.zsl-imodal-head b { font-size: 17px; color: #111827; }
+
+.zsl-imodal-box p {
+    margin: 0 0 16px;
+    color: #374151;
+    font-size: 14.5px;
+    line-height: 1.8;
+}
+
+.zsl-imodal-close {
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 50%;
+    background: #f3f4f6;
+    color: #374151;
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.zsl-imodal-close:hover { background: #e5e7eb; }
+
+.zsl-imodal-ok {
+    width: 100%;
+    padding: 13px;
+    border: 0;
+    border-radius: 10px;
+    background: #111827;
+    color: #ffcc00;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+@media (min-width: 640px) {
+    .zsl-imodal { align-items: center; }
+    .zsl-imodal-box { border-radius: 16px; }
+}
+
+/* ================================================
+   MODAL DE LOCALIDAD
+   ================================================ */
+
+.zsl-loc-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease;
+}
+
+.zsl-loc-modal[hidden] { display: none; }
+
+.zsl-loc-modal.zsl-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.zsl-loc-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, .55);
+}
+
+.zsl-loc-box {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    max-height: 85vh;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px 20px 24px;
+    margin: 16px;
+    transform: translateY(12px) scale(.98);
+    transition: transform .2s ease;
+}
+
+.zsl-loc-modal.zsl-open .zsl-loc-box {
+    transform: translateY(0);
+}
+
+.zsl-loc-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.zsl-loc-head strong {
+    font-size: 18px;
+    color: #111827;
+}
+
+.zsl-loc-close {
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: #f3f4f6;
+    color: #374151;
+    font-size: 20px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.zsl-loc-close:hover { background: #e5e7eb; }
+
+.zsl-loc-help {
+    margin: 8px 0 14px;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.zsl-loc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.zsl-loc-option {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 12px 14px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    background: #ffffff;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    transition: border-color .15s ease, background .15s ease;
+}
+
+.zsl-loc-option:hover {
+    border-color: #ffcc00;
+    background: #fffdf5;
+}
+
+.zsl-loc-option.active {
+    border-color: #111827;
+    background: #fffbe6;
+}
+
+.zsl-loc-option span {
+    font-size: 15px;
+    font-weight: 800;
+    color: #111827;
+}
+
+.zsl-loc-option small {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+
+@media (max-width: 768px) {
+    .zsl-header {
+        flex-wrap: wrap;
+        padding: 8px 10px;
+        gap: 8px;
+    }
+
+    /* Fila 1: logo, chip localidad, moneda */
+    .zsl-logo { order: 1; }
+    .zsl-loc-chip { order: 2; }
+    .zsl-currency-select { order: 3; margin-left: auto; }
+
+    /* Ocultar búsqueda en móvil (ya hay buscador en home) */
+    .zsl-search {
+        display: none;
+    }
+
+    /* Fila 2: acciones a todo el ancho */
+    .zsl-actions {
+        order: 10;
+        flex-basis: 100%;
+        justify-content: space-between;
+        border-top: 1px solid #e5e7eb;
+        padding-top: 8px;
+        margin-top: 2px;
+    }
+
+    .zsl-logo img {
+        max-height: 34px;
+        max-width: 110px;
+    }
+
+    .zsl-logo span { font-size: 17px; }
+
+    .zsl-loc-chip { padding: 5px 8px; }
+
+    .zsl-loc-name { max-width: 72px; }
+
+    .zsl-action { padding: 7px 8px; flex: 1; justify-content: center; }
+
+    .zsl-action-label { display: none; }
+
+    .zsl-dark-toggle { min-width: 40px; min-height: 40px; display: inline-flex; align-items: center; justify-content: center; }
+    .zsl-dark-toggle .zsl-icon-moon { display: none !important; width: 20px; height: 20px; }
+    .zsl-dark-toggle .zsl-icon-sun { display: inline-block !important; width: 20px; height: 20px; }
+    html.dark-mode .zsl-dark-toggle .zsl-icon-moon { display: inline-block !important; }
+    html.dark-mode .zsl-dark-toggle .zsl-icon-sun { display: none !important; }
+}
+
+/* Toast de error */
+.zfh-toast {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    z-index: 99991;
+    max-width: 92vw;
+    padding: 11px 16px;
+    border-radius: 10px;
+    background: #dc2626;
+    color: #ffffff;
+    font-size: 13.5px;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .3);
+    transform: translateX(-50%) translateY(16px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .25s ease, opacity .25s ease;
+}
+.zfh-toast.zfh-show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+.zsl-cart-count.bump { animation: zsl-bump .45s ease; }
+@keyframes zsl-bump {
+    0% { transform: scale(1); }
+    35% { transform: scale(1.5); }
+    100% { transform: scale(1); }
+}
+
+/* ─── Chrome mobile fixes ─── */
+@supports (-webkit-touch-callout: none) {
+    body { -webkit-text-size-adjust: 100%; }
+}
+
+/* Chrome en Android a veces aplica zoom en inputs */
+input[type="search"],
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select {
+    font-size: 16px !important;
+}
+
+/* Evita que Chrome desktop reduzca el header */
+@media screen and (max-width: 782px) {
+    html { -webkit-text-size-adjust: 100%; }
+}

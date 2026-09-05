@@ -1,0 +1,49 @@
+/* ─── Single Product page ─── */
+.zfl-sp-wrap{max-width:960px;margin:0 auto;padding:20px 16px 60px}
+.zfl-sp-bc{font-size:13px;color:#9ca3af;margin-bottom:16px}
+.zfl-sp-bc a{color:#6b7280;text-decoration:none}
+.zfl-sp-bc a:hover{text-decoration:underline;color:#4b5563}
+.zfl-sp-bc span{margin:0 6px;color:#d1d5db}
+.zfl-sp-top{display:flex;flex-wrap:wrap;gap:28px;margin-bottom:36px}
+.zfl-sp-gallery{flex:1 1 380px;min-width:0}
+.zfl-sp-main-img{width:100%;border-radius:12px;object-fit:cover;aspect-ratio:1;background:#f3f4f6;cursor:zoom-in}
+.zfl-sp-thumbs{display:flex;gap:8px;margin-top:10px;overflow-x:auto;padding-bottom:4px}
+.zfl-sp-thumbs img{width:64px;height:64px;object-fit:cover;border-radius:8px;border:2px solid transparent;cursor:pointer;opacity:.7;transition:all .15s}
+.zfl-sp-thumbs img.active,.zfl-sp-thumbs img:hover{border-color:#ffcc00;opacity:1}
+.zfl-sp-info{flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.zfl-sp-name{font-size:24px;font-weight:700;color:#374151;line-height:1.25}
+.zfl-sp-rating{display:flex;align-items:center;gap:8px;font-size:14px;color:#9ca3af}
+.zfl-sp-rating-stars{color:#f59e0b;font-size:16px;letter-spacing:1px}
+.zfl-sp-prices{display:flex;flex-direction:column;gap:6px}
+.zfl-sp-price-item{font-size:20px;font-weight:700;color:#4b5563}
+.zfl-sp-desc{font-size:15px;color:#6b7280;line-height:1.6}
+.zfl-sp-meta{display:flex;flex-wrap:wrap;gap:8px;font-size:13px}
+.zfl-sp-meta-tag{background:#f9fafb;color:#9ca3af;padding:5px 14px;border-radius:20px;border:1px solid #e5e7eb}
+.zfl-sp-add{display:flex;align-items:center;gap:12px;margin-top:4px;flex-wrap:wrap}
+.zfl-sp-add-btn{background:#ffcc00;color:#374151;border:none;padding:14px 28px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:background .15s;text-decoration:none;display:inline-flex;align-items:center}
+.zfl-sp-add-btn:hover{background:#e6b800}
+.zfl-sp-add-btn:disabled{background:#e5e7eb;color:#9ca3af;cursor:not-allowed}
+.zfl-sp-wa{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:14px 24px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;transition:background .15s}
+.zfl-sp-wa:hover{background:#1da851}
+.zfl-sp-section{margin-top:36px}
+.zfl-sp-section h2{font-size:20px;font-weight:700;color:#4b5563;margin-bottom:16px}
+.zfl-sp-full{font-size:15px;color:#6b7280;line-height:1.7}
+.zfl-sp-full p{margin-bottom:12px}
+.zfl-sp-rev-item{border-bottom:1px solid #f3f4f6;padding:16px 0}
+.zfl-sp-rev-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.zfl-sp-rev-avatar{width:32px;height:32px;border-radius:50%;background:#fef3c7;color:#92400e;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.zfl-sp-rev-name{font-weight:600;color:#4b5563;font-size:14px}
+.zfl-sp-rev-date{font-size:12px;color:#d1d5db}
+.zfl-sp-rev-stars{color:#f59e0b;font-size:14px;margin-bottom:4px}
+.zfl-sp-rev-text{font-size:14px;color:#6b7280;line-height:1.5}
+.zfl-sp-related{margin-top:40px}
+.zfl-sp-related h2{font-size:20px;font-weight:700;color:#4b5563;margin-bottom:16px}
+.zfl-sp-rel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.zfl-sp-rel-card{background:#fafafa;border:1px solid #f3f4f6;border-radius:12px;overflow:hidden;transition:box-shadow .15s;text-decoration:none}
+.zfl-sp-rel-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.zfl-sp-rel-card img{width:100%;aspect-ratio:1;object-fit:cover}
+.zfl-sp-rel-card-body{padding:10px 12px}
+.zfl-sp-rel-card-name{font-size:14px;font-weight:600;color:#4b5563;display:block;margin-bottom:4px}
+.zfl-sp-rel-card-price{font-size:13px;color:#9ca3af}
+.zfl-sp-agotado{display:inline-block;background:#fef2f2;color:#b91c1c;padding:3px 10px;border-radius:6px;font-size:12px;font-weight:600;margin-bottom:4px}
+@media(max-width:768px){.zfl-sp-top{flex-direction:column;gap:20px}.zfl-sp-gallery{flex-basis:auto}.zfl-sp-info{flex-basis:auto}.zfl-sp-name{font-size:20px}.zfl-sp-main-img{aspect-ratio:4/3}.zfl-sp-add{flex-direction:column;align-items:stretch}.zfl-sp-add-btn,.zfl-sp-wa{justify-content:center;text-align:center}}
