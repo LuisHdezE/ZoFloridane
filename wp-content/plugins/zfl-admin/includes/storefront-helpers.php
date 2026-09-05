@@ -23,21 +23,21 @@ function zfl_storefront_default_hero_slides( $shop_url, $loc_name = '' ) {
 
     return array(
         array(
-            '_image_url' => zfl_storefront_asset_url( 'hero/hero-family-delivery.webp' ),
+            '_image_url' => zfl_storefront_asset_url( 'hero/hero-family-delivery.avif' ),
             'title'      => 'Compra desde EE. UU. y entrégalo en Cuba.',
             'copy'       => 'Productos esenciales' . $destination . ', pago con Zelle y acompañamiento durante todo el pedido.',
             'link'       => $shop_url,
             'cta'        => 'Ver productos',
         ),
         array(
-            '_image_url' => zfl_storefront_asset_url( 'hero/hero-camaguey-delivery.webp' ),
+            '_image_url' => zfl_storefront_asset_url( 'hero/hero-camaguey-delivery.avif' ),
             'title'      => 'Entregas confiables para tu familia.',
             'copy'       => $loc_name ? 'Coordinamos la entrega en ' . $loc_name . ' con disponibilidad clara según tu destino.' : 'Selecciona la localidad y coordinamos la entrega con disponibilidad clara.',
             'link'       => home_url( '/#como-comprar' ),
             'cta'        => 'Cómo comprar',
         ),
         array(
-            '_image_url' => zfl_storefront_asset_url( 'hero/hero-online-shopping.webp' ),
+            '_image_url' => zfl_storefront_asset_url( 'hero/hero-online-shopping.avif' ),
             'title'      => 'Haz tu pedido online de forma simple.',
             'copy'       => 'Alimentos, bebidas, aseo, higiene y más para tu familia en Cuba.',
             'link'       => $shop_url,
