@@ -114,7 +114,7 @@
         /* ── Selector de tema base: Negro / Verde ── */
         var themeSwitch = document.getElementById('zslThemeSwitch');
         var THEME_KEY = 'zfl_base_theme';
-        var THEME_MIGRATION_KEY = 'zfl_theme_default_green_v145';
+        var THEME_MIGRATION_KEY = 'zfl_theme_default_green_v146';
 
         function normalizeBaseTheme(theme) {
             return theme === 'black' ? 'black' : 'green';
@@ -134,8 +134,6 @@
             root.classList.add('zfl-theme-' + theme);
             root.setAttribute('data-zfl-theme', theme);
 
-            // La Base Verde es realmente clara. El modo de compatibilidad oscuro
-            // solo se conserva cuando el usuario elige explícitamente Base Negra.
             if (theme === 'black') {
                 root.classList.add('dark-mode');
             } else {
@@ -162,10 +160,6 @@
 
         var savedBaseTheme = 'green';
         try {
-            // Migración de una sola vez: versiones anteriores guardaban "black"
-            // incluso cuando ese era simplemente el valor predeterminado. En 1.4.5
-            // arrancamos inequívocamente en Base Verde y después respetamos cada
-            // cambio manual del usuario.
             if (localStorage.getItem(THEME_MIGRATION_KEY) !== '1') {
                 localStorage.setItem(THEME_KEY, 'green');
                 localStorage.setItem(THEME_MIGRATION_KEY, '1');
