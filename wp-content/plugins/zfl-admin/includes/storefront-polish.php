@@ -29,5 +29,15 @@ function zfl_storefront_polish_assets() {
         "(function(){try{var k='zfl_base_theme';var v=localStorage.getItem(k);if(v!=='black'&&v!=='green'){localStorage.setItem(k,'green');}}catch(e){}})();",
         'before'
     );
+
+    // Corrige la clase dark-mode heredada: Base Verde es realmente clara,
+    // mientras Base Negra conserva el modo oscuro y ambas siguen persistiendo.
+    wp_enqueue_script(
+        'zfl-storefront-theme-default',
+        ZFL_URL . 'frontend/assets/storefront-theme-default.js',
+        array( 'zfl-store' ),
+        ZFL_VERSION,
+        true
+    );
 }
 add_action( 'wp_enqueue_scripts', 'zfl_storefront_polish_assets', 40 );
