@@ -29,16 +29,17 @@ html.zfl-theme-black .zsl-footer-logo img {
 /* Flechas del carrusel: usamos glifos CSS deliberadamente robustos para que
    ninguna regla heredada de Electro pueda convertir el SVG en un punto. */
 .zfh-nav {
-    width: 42px !important;
-    height: 42px !important;
-    min-width: 42px !important;
-    min-height: 42px !important;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
     border-radius: 50% !important;
     display: grid !important;
     place-items: center !important;
     padding: 0 !important;
     overflow: visible !important;
     font-size: 0 !important;
+    opacity: 1 !important;
 }
 
 .zfh-nav svg {
@@ -64,10 +65,10 @@ html.zfl-theme-black .zsl-footer-logo img {
 }
 
 html.zfl-theme-green .zfh-nav {
-    background: rgba(255,255,255,.97) !important;
+    background: rgba(255,255,255,.98) !important;
     color: #075f4c !important;
-    border: 1px solid rgba(7,95,76,.22) !important;
-    box-shadow: 0 5px 16px rgba(21,72,50,.16) !important;
+    border: 1px solid rgba(7,95,76,.28) !important;
+    box-shadow: 0 5px 16px rgba(21,72,50,.18) !important;
 }
 
 html.zfl-theme-green .zfh-nav:hover,
@@ -78,10 +79,10 @@ html.zfl-theme-green .zfh-nav:focus-visible {
 }
 
 html.zfl-theme-black .zfh-nav {
-    background: rgba(255,255,255,.96) !important;
+    background: rgba(255,255,255,.98) !important;
     color: #083f31 !important;
-    border: 1px solid rgba(255,255,255,.65) !important;
-    box-shadow: 0 5px 18px rgba(0,0,0,.34) !important;
+    border: 1px solid rgba(255,255,255,.72) !important;
+    box-shadow: 0 5px 18px rgba(0,0,0,.36) !important;
 }
 
 html.zfl-theme-black .zfh-nav:hover,
@@ -93,10 +94,10 @@ html.zfl-theme-black .zfh-nav:focus-visible {
 
 @media (max-width: 767px) {
     .zfh-nav {
-        width: 38px !important;
-        height: 38px !important;
-        min-width: 38px !important;
-        min-height: 38px !important;
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
     }
 
     .zfh-nav::before {
