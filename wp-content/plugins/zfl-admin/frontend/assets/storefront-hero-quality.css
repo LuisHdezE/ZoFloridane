@@ -1,0 +1,153 @@
+/*
+ * ZoFloridane Storefront hero quality fix.
+ * Evita estirar la fotografía del carrusel y separa el área de copy de la imagen.
+ */
+
+.zfh-carousel,
+.zfh-slide {
+    background: #ffffff !important;
+}
+
+.zfh-slide {
+    position: relative !important;
+    overflow: hidden !important;
+    min-height: 360px !important;
+}
+
+.zfh-slide img {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+    bottom: auto !important;
+    width: 62% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-width: none !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    image-rendering: auto !important;
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+.zfh-slide-shade {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+}
+
+html.zfl-theme-green .zfh-slide-shade {
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,1) 34%,
+        rgba(255,255,255,.96) 43%,
+        rgba(255,255,255,.76) 51%,
+        rgba(255,255,255,.24) 61%,
+        rgba(255,255,255,0) 72%
+    ) !important;
+}
+
+html.zfl-theme-black .zfh-slide-shade {
+    background: linear-gradient(
+        90deg,
+        rgba(3,8,6,.96) 0%,
+        rgba(3,8,6,.93) 34%,
+        rgba(3,8,6,.82) 44%,
+        rgba(3,8,6,.54) 53%,
+        rgba(3,8,6,.18) 63%,
+        rgba(3,8,6,0) 74%
+    ) !important;
+}
+
+.zfh-slide-copy {
+    position: relative !important;
+    z-index: 2 !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: min(43%, 480px) !important;
+    max-width: 480px !important;
+    min-height: 360px !important;
+    padding: 48px 42px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+}
+
+.zfh-slide-copy strong {
+    display: block !important;
+    max-width: 12ch !important;
+}
+
+.zfh-slide-copy em,
+.zfh-slide-copy p {
+    max-width: 42ch !important;
+}
+
+.zfh-nav,
+.zfh-dots {
+    z-index: 3 !important;
+}
+
+@media (max-width: 1100px) {
+    .zfh-slide,
+    .zfh-slide-copy {
+        min-height: 330px !important;
+    }
+
+    .zfh-slide img {
+        width: 58% !important;
+    }
+
+    .zfh-slide-copy {
+        width: min(47%, 440px) !important;
+        padding: 38px 30px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .zfh-slide,
+    .zfh-slide-copy {
+        min-height: 420px !important;
+    }
+
+    .zfh-slide img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        opacity: .28 !important;
+    }
+
+    html.zfl-theme-green .zfh-slide-shade {
+        background: linear-gradient(
+            180deg,
+            rgba(255,255,255,.86) 0%,
+            rgba(255,255,255,.94) 34%,
+            rgba(255,255,255,.985) 100%
+        ) !important;
+    }
+
+    html.zfl-theme-black .zfh-slide-shade {
+        background: linear-gradient(
+            180deg,
+            rgba(3,8,6,.58) 0%,
+            rgba(3,8,6,.83) 38%,
+            rgba(3,8,6,.97) 100%
+        ) !important;
+    }
+
+    .zfh-slide-copy {
+        width: 100% !important;
+        max-width: none !important;
+        padding: 30px 24px 34px !important;
+    }
+
+    .zfh-slide-copy strong {
+        max-width: 11ch !important;
+    }
+}

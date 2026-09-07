@@ -1,0 +1,843 @@
+/*
+ * ZoFloridane Storefront UI v1.2
+ * Corrección visual sobre storefront-v1.css.
+ * Mantiene una sola arquitectura y hace que Base Verde sea realmente clara.
+ */
+
+/* --------------------------------------------------------------------------
+   Base Verde: superficies claras, verde como identidad y no como fondo total
+   -------------------------------------------------------------------------- */
+html.zfl-theme-green {
+    --zfl-ui-bg: #f7f9f8;
+    --zfl-ui-surface: #ffffff;
+    --zfl-ui-surface-2: #f3f6f4;
+    --zfl-ui-surface-3: #eaf3ee;
+    --zfl-ui-border: #dfe7e2;
+    --zfl-ui-text: #183228;
+    --zfl-ui-muted: #66776f;
+    --zfl-ui-accent: #08775b;
+    --zfl-ui-accent-strong: #056049;
+    --zfl-ui-on-accent: #ffffff;
+    --zfl-ui-header: #ffffff;
+    --zfl-ui-nav: #ffffff;
+    --zfl-ui-topbar: #086b55;
+    --zfl-ui-footer: #ffffff;
+    --zfl-ui-soft: #edf6f1;
+    --zfl-ui-shadow: 0 14px 34px rgba(21, 72, 50, .09);
+    --zfl-ui-card-shadow: 0 7px 20px rgba(21, 72, 50, .07);
+
+    --zfl-bg: var(--zfl-ui-bg);
+    --zfl-surface: var(--zfl-ui-surface);
+    --zfl-surface-2: var(--zfl-ui-surface-2);
+    --zfl-surface-3: var(--zfl-ui-surface-3);
+    --zfl-border: var(--zfl-ui-border);
+    --zfl-text: var(--zfl-ui-text);
+    --zfl-muted: var(--zfl-ui-muted);
+    --zfl-green: var(--zfl-ui-accent);
+    --zfl-green-strong: var(--zfl-ui-accent-strong);
+    --zfl-on-accent: var(--zfl-ui-on-accent);
+    --zfl-header-bg: #ffffff;
+    --zfl-nav-bg: #ffffff;
+    --zfl-topline-bg: var(--zfl-ui-topbar);
+    --zfl-deep-bg: #ffffff;
+    --zfl-hero-side-bg: #ffffff;
+    --zfl-hero-delivery-bg: #ffffff;
+    --zfl-card-border-hover: #9fcfbd;
+}
+
+html.zfl-theme-green body,
+html.zfl-theme-green .site-content,
+html.zfl-theme-green #content,
+html.zfl-theme-green .zfh {
+    background: #f7f9f8 !important;
+    color: #183228 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Header aprobado: topbar verde, cuerpo y navegación blancos
+   -------------------------------------------------------------------------- */
+html.zfl-theme-green .zsl-header,
+html.zfl-theme-green .zsl-main,
+html.zfl-theme-green .zsl-nav {
+    background: #ffffff !important;
+    color: #183228 !important;
+}
+
+html.zfl-theme-green .zsl-header {
+    border-bottom-color: #dfe7e2 !important;
+    box-shadow: 0 3px 14px rgba(19, 64, 45, .06) !important;
+}
+
+html.zfl-theme-green .zsl-topline {
+    background: #086b55 !important;
+    border: 0 !important;
+}
+
+html.zfl-theme-green .zsl-topline-inner,
+html.zfl-theme-green .zsl-topline-inner span {
+    color: #ffffff !important;
+}
+
+html.zfl-theme-green .zsl-topline-inner svg {
+    stroke: #c8f2df !important;
+}
+
+.zsl-logo img {
+    width: auto !important;
+    max-width: 220px !important;
+    max-height: 58px !important;
+    object-fit: contain !important;
+}
+
+html.zfl-theme-green .zsl-search input[type="search"],
+html.zfl-theme-green .zsl-loc-chip,
+html.zfl-theme-green .zsl-currency-select {
+    background: #ffffff !important;
+    border-color: #d7e2dc !important;
+    color: #183228 !important;
+}
+
+html.zfl-theme-green .zsl-search input[type="search"] {
+    box-shadow: inset 0 1px 1px rgba(18, 56, 39, .02) !important;
+}
+
+html.zfl-theme-green .zsl-loc-chip:hover,
+html.zfl-theme-green .zsl-action:hover {
+    background: #f3f7f5 !important;
+    border-color: #b9d6c8 !important;
+}
+
+html.zfl-theme-green .zsl-action,
+html.zfl-theme-green .zsl-action svg,
+html.zfl-theme-green .zsl-action-label,
+html.zfl-theme-green .zsl-loc-name,
+html.zfl-theme-green .zsl-nav a {
+    color: #183228 !important;
+}
+
+html.zfl-theme-green .zsl-nav {
+    border-top: 1px solid #e6ece8 !important;
+}
+
+html.zfl-theme-green .zsl-nav .zsl-nav-offers,
+html.zfl-theme-green .zsl-nav a:hover {
+    color: #08775b !important;
+}
+
+html.zfl-theme-green .zsl-theme-switch {
+    background: #f2f5f3 !important;
+    border-color: #d7e2dc !important;
+}
+
+html.zfl-theme-green .zsl-theme-option.is-active {
+    background: #ffffff !important;
+}
+
+/* --------------------------------------------------------------------------
+   Home y hero fotográfico
+   -------------------------------------------------------------------------- */
+.zfh {
+    width: min(100%, 1320px) !important;
+    padding-top: 14px !important;
+}
+
+.zfh-hero-grid {
+    grid-template-columns: minmax(0, 2.65fr) minmax(255px, .92fr) !important;
+    gap: 12px !important;
+    align-items: stretch !important;
+}
+
+.zfh-carousel,
+.zfh-slide,
+.zfh-slide img,
+.zfh-hero-side {
+    height: 372px !important;
+    min-height: 372px !important;
+}
+
+.zfh-carousel {
+    border-radius: 14px !important;
+    border: 1px solid var(--zfl-ui-border) !important;
+    box-shadow: var(--zfl-ui-shadow) !important;
+    background: #ffffff !important;
+}
+
+.zfh-track {
+    height: 100% !important;
+}
+
+.zfh-slide {
+    overflow: hidden !important;
+}
+
+.zfh-slide img {
+    width: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    opacity: 1 !important;
+}
+
+/* Las imágenes aprobadas dejan espacio a la izquierda para el copy. */
+html.zfl-theme-green .zfh-slide-shade {
+    background: linear-gradient(90deg,
+        rgba(255,255,255,.98) 0%,
+        rgba(255,255,255,.94) 25%,
+        rgba(247,251,249,.73) 42%,
+        rgba(247,251,249,.18) 62%,
+        rgba(247,251,249,0) 78%) !important;
+}
+
+html.zfl-theme-green .zfh-slide-copy {
+    width: min(470px, 50%) !important;
+    left: clamp(28px, 3.5vw, 54px) !important;
+    color: #183228 !important;
+    text-shadow: none !important;
+}
+
+html.zfl-theme-green .zfh-slide-copy small {
+    color: #08775b !important;
+}
+
+html.zfl-theme-green .zfh-slide-copy strong {
+    color: #15362a !important;
+    font-size: clamp(32px, 3.15vw, 50px) !important;
+    line-height: .98 !important;
+    max-width: 11ch !important;
+}
+
+html.zfl-theme-green .zfh-slide-copy em {
+    max-width: 420px;
+    color: #4e655b !important;
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+}
+
+html.zfl-theme-green .zfh-slide-cta {
+    background: #08775b !important;
+    color: #ffffff !important;
+    box-shadow: 0 7px 16px rgba(8,119,91,.18) !important;
+}
+
+html.zfl-theme-green .zfh-nav {
+    background: rgba(255,255,255,.94) !important;
+    border-color: rgba(24,50,40,.16) !important;
+    color: #183228 !important;
+    box-shadow: 0 4px 12px rgba(20,60,43,.12) !important;
+}
+
+html.zfl-theme-green .zfh-nav:hover {
+    background: #ffffff !important;
+    color: #08775b !important;
+}
+
+html.zfl-theme-green .zfh-dots button {
+    background: rgba(24,50,40,.28) !important;
+}
+
+html.zfl-theme-green .zfh-dots button.active {
+    background: #08775b !important;
+}
+
+/* Base Negra conserva contraste fotográfico. */
+html.zfl-theme-black .zfh-slide-shade {
+    background: linear-gradient(90deg,
+        rgba(3,8,6,.88) 0%,
+        rgba(3,8,6,.72) 30%,
+        rgba(3,8,6,.35) 53%,
+        rgba(3,8,6,.06) 76%) !important;
+}
+
+html.zfl-theme-black .zfh-slide-copy {
+    width: min(500px, 54%) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Cards laterales: Zelle verde de marca y entrega limpia
+   -------------------------------------------------------------------------- */
+.zfh-hero-side {
+    gap: 12px !important;
+}
+
+.zfh-side-card {
+    min-height: 0 !important;
+    padding: 20px !important;
+    border-radius: 14px !important;
+}
+
+html.zfl-theme-green .zfh-side-zelle {
+    background: linear-gradient(145deg, #075f4c 0%, #08775b 72%, #0a8667 100%) !important;
+    border-color: #075f4c !important;
+    color: #ffffff !important;
+    box-shadow: 0 9px 22px rgba(8,119,91,.16) !important;
+}
+
+html.zfl-theme-green .zfh-side-zelle h2,
+html.zfl-theme-green .zfh-side-zelle p,
+html.zfl-theme-green .zfh-side-zelle small {
+    color: #ffffff !important;
+}
+
+html.zfl-theme-green .zfh-side-zelle p {
+    opacity: .86;
+}
+
+html.zfl-theme-green .zfh-side-zelle .zfh-side-icon {
+    background: rgba(255,255,255,.12) !important;
+    border: 1px solid rgba(255,255,255,.55) !important;
+    color: #ffffff !important;
+}
+
+html.zfl-theme-green .zfh-side-delivery {
+    background: #ffffff !important;
+    border-color: #dfe7e2 !important;
+    color: #183228 !important;
+    box-shadow: 0 7px 18px rgba(21,72,50,.06) !important;
+}
+
+html.zfl-theme-green .zfh-side-delivery h2 {
+    color: #183228 !important;
+}
+
+html.zfl-theme-green .zfh-side-delivery p {
+    color: #66776f !important;
+}
+
+html.zfl-theme-green .zfh-side-delivery small,
+html.zfl-theme-green .zfh-side-delivery .zfh-side-link {
+    color: #08775b !important;
+}
+
+html.zfl-theme-green .zfh-side-delivery .zfh-side-icon {
+    background: #e8f5ef !important;
+    color: #08775b !important;
+}
+
+/* --------------------------------------------------------------------------
+   Secciones y categorías
+   -------------------------------------------------------------------------- */
+.zfh-section {
+    margin-top: 24px !important;
+}
+
+.zfh-section-head {
+    margin-bottom: 10px !important;
+}
+
+.zfh-section-head .zfh-eyebrow {
+    margin-bottom: 2px !important;
+}
+
+html.zfl-theme-green .zfh-h2,
+html.zfl-theme-green .zfh-section-head h2,
+html.zfl-theme-green .zfh-section-head a {
+    color: #183228 !important;
+}
+
+html.zfl-theme-green .zfh-section-head > a {
+    color: #08775b !important;
+}
+
+.zfh-catssec {
+    margin-top: 22px !important;
+}
+
+.zfh-cats-cards {
+    display: grid !important;
+    grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    overflow: visible !important;
+    padding: 0 !important;
+}
+
+.zfh-catcard {
+    width: auto !important;
+    min-width: 0 !important;
+    min-height: 112px !important;
+    padding: 9px 8px !important;
+    border-radius: 11px !important;
+}
+
+html.zfl-theme-green .zfh-catcard {
+    background: #ffffff !important;
+    border: 1px solid #dfe7e2 !important;
+    color: #183228 !important;
+    box-shadow: 0 3px 12px rgba(21,72,50,.04) !important;
+}
+
+html.zfl-theme-green .zfh-catcard:hover {
+    background: #ffffff !important;
+    border-color: #91c5b1 !important;
+    box-shadow: 0 9px 22px rgba(21,72,50,.10) !important;
+}
+
+.zfh-catcard img,
+.zfh-catcard-ph {
+    width: 68px !important;
+    height: 62px !important;
+    border-radius: 9px !important;
+    object-fit: contain !important;
+}
+
+html.zfl-theme-green .zfh-catcard img,
+html.zfl-theme-green .zfh-catcard-ph {
+    background: #f5f8f6 !important;
+    border: 0 !important;
+}
+
+html.zfl-theme-green .zfh-catcard-ph {
+    color: #08775b !important;
+}
+
+html.zfl-theme-green .zfh-catcard-name {
+    color: #183228 !important;
+    font-size: 11.5px !important;
+    font-weight: 750 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Más vendidos: ocho productos en desktop grande
+   -------------------------------------------------------------------------- */
+.zfh-grid-featured {
+    display: grid !important;
+    grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
+    gap: 9px !important;
+}
+
+.zfh-featured .zfh-card {
+    min-width: 0 !important;
+    border-radius: 11px !important;
+    overflow: hidden !important;
+}
+
+html.zfl-theme-green .zfh-card {
+    background: #ffffff !important;
+    border: 1px solid #dfe7e2 !important;
+    color: #183228 !important;
+    box-shadow: 0 3px 12px rgba(21,72,50,.045) !important;
+}
+
+html.zfl-theme-green .zfh-card:hover {
+    border-color: #9bcab8 !important;
+    box-shadow: 0 10px 24px rgba(21,72,50,.10) !important;
+}
+
+.zfh-featured .zfh-card-img {
+    aspect-ratio: 1 / .92 !important;
+}
+
+html.zfl-theme-green .zfh-card-img {
+    background: #ffffff !important;
+}
+
+.zfh-featured .zfh-card-img img {
+    padding: 8px !important;
+}
+
+.zfh-featured .zfh-card-body {
+    min-height: 118px !important;
+    padding: 9px !important;
+    gap: 5px !important;
+}
+
+html.zfl-theme-green .zfh-card-name {
+    color: #26372f !important;
+    font-size: 11.5px !important;
+    line-height: 1.3 !important;
+}
+
+html.zfl-theme-green .zfh-card-price {
+    color: #075f4c !important;
+    font-size: 15px !important;
+    font-weight: 850 !important;
+}
+
+html.zfl-theme-green .zfh-card-price del {
+    color: #8b9892 !important;
+}
+
+.zfh-featured .zfh-card-add {
+    min-height: 33px !important;
+    padding: 0 7px !important;
+    border-radius: 7px !important;
+    font-size: 10.5px !important;
+}
+
+html.zfl-theme-green .zfh-card-add {
+    background: #08775b !important;
+    color: #ffffff !important;
+}
+
+html.zfl-theme-green .zfh-card-secondary {
+    background: #eef5f1 !important;
+    color: #075f4c !important;
+    border-color: #d4e4dc !important;
+}
+
+html.zfl-theme-green .zfh-badge-hot {
+    background: #e3f5ec !important;
+    color: #06634d !important;
+}
+
+/* --------------------------------------------------------------------------
+   Confianza: una sola banda visual
+   -------------------------------------------------------------------------- */
+.zfh-trust {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 0 !important;
+    margin: 24px 0 0 !important;
+    padding: 0 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+}
+
+html.zfl-theme-green .zfh-trust {
+    background: #ffffff !important;
+    border: 1px solid #dfe7e2 !important;
+    box-shadow: 0 4px 14px rgba(21,72,50,.04) !important;
+}
+
+.zfh-trust-item {
+    min-height: 76px !important;
+    padding: 12px 14px !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+html.zfl-theme-green .zfh-trust-item {
+    background: transparent !important;
+    border: 0 !important;
+    border-right: 1px solid #e4ebe7 !important;
+}
+
+html.zfl-theme-green .zfh-trust-item:last-child {
+    border-right: 0 !important;
+}
+
+html.zfl-theme-green .zfh-trust-item svg {
+    background: #e9f5ef !important;
+    color: #08775b !important;
+}
+
+html.zfl-theme-green .zfh-trust-item b {
+    color: #183228 !important;
+}
+
+html.zfl-theme-green .zfh-trust-item small {
+    color: #66776f !important;
+}
+
+/* --------------------------------------------------------------------------
+   Cómo comprar: banda compacta de cuatro pasos
+   -------------------------------------------------------------------------- */
+.zfh-how {
+    margin-top: 14px !important;
+    padding: 18px 20px !important;
+    border-radius: 12px !important;
+}
+
+html.zfl-theme-green .zfh-how {
+    background: #f0f7f3 !important;
+    border: 1px solid #dcebe3 !important;
+    color: #183228 !important;
+    box-shadow: none !important;
+}
+
+.zfh-how-head {
+    margin: 0 auto 14px !important;
+}
+
+.zfh-how-head h2 {
+    margin: 2px 0 3px !important;
+    font-size: clamp(20px, 2vw, 26px) !important;
+}
+
+.zfh-how-head p {
+    font-size: 11.5px !important;
+}
+
+html.zfl-theme-green .zfh-how-head h2,
+html.zfl-theme-green .zfh-how-head p {
+    color: #183228 !important;
+}
+
+.zfh-how-grid {
+    gap: 8px !important;
+}
+
+.zfh-how-step {
+    min-height: 118px !important;
+    padding: 13px !important;
+    border-radius: 10px !important;
+}
+
+html.zfl-theme-green .zfh-how-step {
+    background: #ffffff !important;
+    border: 1px solid #dfe7e2 !important;
+}
+
+html.zfl-theme-green .zfh-how-step > span {
+    background: #dff2e9 !important;
+    color: #08775b !important;
+}
+
+html.zfl-theme-green .zfh-how-step h3 {
+    color: #183228 !important;
+}
+
+html.zfl-theme-green .zfh-how-step p {
+    color: #66776f !important;
+}
+
+/* CTA emocional, intencionalmente bajo. */
+.zfh-emotional {
+    min-height: 0 !important;
+    margin-top: 14px !important;
+    padding: 20px 24px !important;
+    border-radius: 12px !important;
+}
+
+html.zfl-theme-green .zfh-emotional {
+    background: linear-gradient(110deg, #075f4c, #0b8667) !important;
+    color: #ffffff !important;
+}
+
+html.zfl-theme-green .zfh-emotional .zfh-eyebrow,
+html.zfl-theme-green .zfh-emotional h2,
+html.zfl-theme-green .zfh-emotional p {
+    color: #ffffff !important;
+}
+
+html.zfl-theme-green .zfh-emotional > a {
+    background: #ffffff !important;
+    color: #075f4c !important;
+}
+
+/* --------------------------------------------------------------------------
+   Footer: información en blanco y cierre verde
+   -------------------------------------------------------------------------- */
+.zsl-footer {
+    margin-top: 24px !important;
+}
+
+html.zfl-theme-green .zsl-footer,
+html.zfl-theme-green .zsl-footer-inner {
+    background: #ffffff !important;
+    color: #183228 !important;
+}
+
+.zsl-footer-inner {
+    padding-top: 28px !important;
+    padding-bottom: 20px !important;
+}
+
+.zsl-footer-logo img {
+    max-width: 205px !important;
+    max-height: 62px !important;
+    object-fit: contain !important;
+}
+
+html.zfl-theme-green .zsl-footer-col h4,
+html.zfl-theme-green .zsl-footer-links a,
+html.zfl-theme-green .zsl-footer-static {
+    color: #183228 !important;
+}
+
+html.zfl-theme-green .zsl-footer-tag,
+html.zfl-theme-green .zsl-footer-note {
+    color: #66776f !important;
+}
+
+html.zfl-theme-green .zsl-footer-links a:hover {
+    color: #08775b !important;
+}
+
+html.zfl-theme-green .zsl-footer-badges span,
+html.zfl-theme-green .zsl-loc-pill {
+    background: #edf6f1 !important;
+    border-color: #d5e7de !important;
+    color: #075f4c !important;
+}
+
+html.zfl-theme-green .zsl-footer-bottom {
+    max-width: none !important;
+    margin-top: 0 !important;
+    padding: 12px max(20px, calc((100vw - 1280px) / 2)) !important;
+    border-top: 0 !important;
+    background: #075f4c !important;
+    color: #e9f7f1 !important;
+}
+
+html.zfl-theme-green .zsl-footer-bottom strong {
+    color: #ffffff !important;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 1199px) {
+    .zfh-grid-featured {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+
+    .zfh-cats-cards {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 980px) {
+    .zfh-hero-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .zfh-carousel,
+    .zfh-slide,
+    .zfh-slide img {
+        height: 340px !important;
+        min-height: 340px !important;
+    }
+
+    .zfh-hero-side {
+        height: auto !important;
+        min-height: 0 !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: auto !important;
+    }
+
+    .zfh-grid-featured {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+
+    .zfh-trust {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    html.zfl-theme-green .zfh-trust-item:nth-child(2) {
+        border-right: 0 !important;
+    }
+
+    html.zfl-theme-green .zfh-trust-item:nth-child(-n+2) {
+        border-bottom: 1px solid #e4ebe7 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .zsl-logo img {
+        max-width: 158px !important;
+        max-height: 48px !important;
+    }
+
+    .zfh {
+        padding-top: 10px !important;
+    }
+
+    .zfh-carousel,
+    .zfh-slide,
+    .zfh-slide img {
+        height: 300px !important;
+        min-height: 300px !important;
+    }
+
+    html.zfl-theme-green .zfh-slide-shade {
+        background: linear-gradient(90deg,
+            rgba(255,255,255,.97) 0%,
+            rgba(255,255,255,.88) 48%,
+            rgba(255,255,255,.18) 82%) !important;
+    }
+
+    html.zfl-theme-green .zfh-slide-copy {
+        width: 66% !important;
+        left: 20px !important;
+    }
+
+    html.zfl-theme-green .zfh-slide-copy strong {
+        font-size: clamp(28px, 6vw, 38px) !important;
+    }
+
+    .zfh-cats-cards {
+        display: flex !important;
+        overflow-x: auto !important;
+        gap: 8px !important;
+        padding-bottom: 5px !important;
+        scrollbar-width: none;
+    }
+
+    .zfh-cats-cards::-webkit-scrollbar { display: none; }
+
+    .zfh-catcard {
+        flex: 0 0 108px !important;
+        min-height: 108px !important;
+    }
+
+    .zfh-grid-featured {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .zfh-how-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 540px) {
+    .zfh-carousel,
+    .zfh-slide,
+    .zfh-slide img {
+        height: 286px !important;
+        min-height: 286px !important;
+    }
+
+    .zfh-hero-side {
+        grid-template-columns: 1fr !important;
+    }
+
+    html.zfl-theme-green .zfh-slide-shade {
+        background: linear-gradient(90deg,
+            rgba(255,255,255,.98) 0%,
+            rgba(255,255,255,.92) 58%,
+            rgba(255,255,255,.42) 82%,
+            rgba(255,255,255,.10) 100%) !important;
+    }
+
+    html.zfl-theme-green .zfh-slide-copy {
+        width: 76% !important;
+        left: 16px !important;
+    }
+
+    html.zfl-theme-green .zfh-slide-copy strong {
+        font-size: 28px !important;
+    }
+
+    html.zfl-theme-green .zfh-slide-copy em {
+        font-size: 11px !important;
+    }
+
+    .zfh-trust {
+        grid-template-columns: 1fr !important;
+    }
+
+    html.zfl-theme-green .zfh-trust-item {
+        border-right: 0 !important;
+        border-bottom: 1px solid #e4ebe7 !important;
+    }
+
+    html.zfl-theme-green .zfh-trust-item:last-child {
+        border-bottom: 0 !important;
+    }
+
+    .zfh-how-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .zfh-how {
+        padding: 16px 12px !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .zfh-track,
+    .zfh-card,
+    .zfh-catcard,
+    .zfh-slide-cta {
+        transition: none !important;
+    }
+}

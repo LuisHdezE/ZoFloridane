@@ -111,27 +111,37 @@
             }, { passive: true });
         }
 
-        /* ── Selector de tema base: negro / verde ── */
+        /* ── Selector de tema base: Negro / Verde ── */
         var themeSwitch = document.getElementById('zslThemeSwitch');
         var THEME_KEY = 'zfl_base_theme';
+        var THEME_MIGRATION_KEY = 'zfl_theme_default_green_v146';
 
         function normalizeBaseTheme(theme) {
-            return theme === 'green' ? 'green' : 'black';
+            return theme === 'black' ? 'black' : 'green';
+        }
+
+        function saveBaseTheme(theme) {
+            try {
+                localStorage.setItem(THEME_KEY, theme);
+            } catch (e) {}
         }
 
         function applyBaseTheme(theme, persist) {
             theme = normalizeBaseTheme(theme);
             var root = document.documentElement;
 
-            // Ambos diseños usan superficies oscuras; mantenemos los estilos
-            // de compatibilidad dark-mode y cambiamos únicamente la base cromática.
-            root.classList.add('dark-mode');
             root.classList.remove('zfl-theme-black', 'zfl-theme-green');
             root.classList.add('zfl-theme-' + theme);
             root.setAttribute('data-zfl-theme', theme);
 
+            if (theme === 'black') {
+                root.classList.add('dark-mode');
+            } else {
+                root.classList.remove('dark-mode');
+            }
+
             if (persist !== false) {
-                localStorage.setItem(THEME_KEY, theme);
+                saveBaseTheme(theme);
             }
 
             if (themeSwitch) {
@@ -142,14 +152,22 @@
                 });
             }
 
-            // Integra el color del navegador/PWA con el tema elegido.
             var themeMeta = document.querySelector('meta[name="theme-color"]');
             if (themeMeta) {
-                themeMeta.setAttribute('content', theme === 'green' ? '#073d2a' : '#070a09');
+                themeMeta.setAttribute('content', theme === 'green' ? '#08775b' : '#070a09');
             }
         }
 
-        var savedBaseTheme = normalizeBaseTheme(localStorage.getItem(THEME_KEY));
+        var savedBaseTheme = 'green';
+        try {
+            if (localStorage.getItem(THEME_MIGRATION_KEY) !== '1') {
+                localStorage.setItem(THEME_KEY, 'green');
+                localStorage.setItem(THEME_MIGRATION_KEY, '1');
+            }
+            savedBaseTheme = normalizeBaseTheme(localStorage.getItem(THEME_KEY));
+        } catch (e) {
+            savedBaseTheme = 'green';
+        }
         applyBaseTheme(savedBaseTheme, false);
 
         if (themeSwitch) {
