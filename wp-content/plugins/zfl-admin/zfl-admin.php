@@ -2,14 +2,14 @@
 /**
  * Plugin Name: ZoFloridane Admin
  * Description: Panel privado y storefront personalizado de ZoFloridane con catálogo, localidades, promociones, pedidos y Zelle.
- * Version: 1.4.6
+ * Version: 1.4.7
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'ZFL_VERSION', '1.4.6' );
+define( 'ZFL_VERSION', '1.4.7' );
 define( 'ZFL_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ZFL_URL', plugin_dir_url( __FILE__ ) );
 define( 'ZFL_SLUG', 'panel' );
